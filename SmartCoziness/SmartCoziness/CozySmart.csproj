@@ -132,8 +132,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostsController.cs" />
+    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
     <Compile Include="Migrations\201904131906597_HostChange.cs" />
     <Compile Include="Migrations\201904131906597_HostChange.Designer.cs">
       <DependentUpon>201904131906597_HostChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131952069_ControllersAdded.cs" />
+    <Compile Include="Migrations\201904131952069_ControllersAdded.Designer.cs">
+      <DependentUpon>201904131952069_ControllersAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -200,6 +207,21 @@
     <Content Include="Views\Hosts\Details.cshtml" />
     <Content Include="Views\Hosts\Edit.cshtml" />
     <Content Include="Views\Hosts\Index.cshtml" />
+    <Content Include="Views\Properties\Create.cshtml" />
+    <Content Include="Views\Properties\Delete.cshtml" />
+    <Content Include="Views\Properties\Details.cshtml" />
+    <Content Include="Views\Properties\Edit.cshtml" />
+    <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
+    <Content Include="Views\Tenants\Create.cshtml" />
+    <Content Include="Views\Tenants\Delete.cshtml" />
+    <Content Include="Views\Tenants\Details.cshtml" />
+    <Content Include="Views\Tenants\Edit.cshtml" />
+    <Content Include="Views\Tenants\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904131906597_HostChange.resx">
       <DependentUpon>201904131906597_HostChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131952069_ControllersAdded.resx">
+      <DependentUpon>201904131952069_ControllersAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,16 +28,16 @@ namespace SmartCoziness.Models
 
         public string Adress { get; set; }
 
-        [Required]
         [Display(Name = "Date Joined")]
+        [Required]        
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateJoined { get; set; }
 
         public Property Property { get; set; }
 
-        [Required]
         [Display(Name = "Property Name")]
+        [Required]        
         public int PropertyId { get; set; }
 
         //Must add profile picture
