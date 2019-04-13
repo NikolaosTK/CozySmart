@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCoziness", "SmartCoziness\SmartCoziness.csproj", "{A6504C09-2AD5-4327-A6E1-2B0C71920A6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozySmart", "SmartCoziness\CozySmart.csproj", "{A6504C09-2AD5-4327-A6E1-2B0C71920A6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
