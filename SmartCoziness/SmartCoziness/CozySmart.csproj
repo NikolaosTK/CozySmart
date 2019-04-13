@@ -137,6 +137,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904131855240_Booking.cs" />
+    <Compile Include="Migrations\201904131855240_Booking.Designer.cs">
+      <DependentUpon>201904131855240_Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131906597_HostChange.cs" />
+    <Compile Include="Migrations\201904131906597_HostChange.Designer.cs">
+      <DependentUpon>201904131906597_HostChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Host.cs" />
@@ -208,6 +216,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904131855240_Booking.resx">
+      <DependentUpon>201904131855240_Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131906597_HostChange.resx">
+      <DependentUpon>201904131906597_HostChange.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
