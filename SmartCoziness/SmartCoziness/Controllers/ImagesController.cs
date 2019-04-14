@@ -10,107 +10,112 @@ using SmartCoziness.Models;
 
 namespace SmartCoziness.Controllers
 {
-    public class BookingsController : Controller
+    public class ImagesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
 
-        // GET: Bookings
+        // GET: Images
         public ActionResult Index()
         {
-            return View(db.Bookings.ToList());
+            var images = db.Images.Include(i => i.Accommodation);
+            return View(images.ToList());
         }
 
-        // GET: Bookings/Details/5
+        // GET: Images/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Image image = db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            return View(image);
         }
 
-        // GET: Bookings/Create
+        // GET: Images/Create
         public ActionResult Create()
         {
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Owner");
             return View();
         }
 
-        // POST: Bookings/Create
+        // POST: Images/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Start,End")] Booking booking)
+        public ActionResult Create([Bind(Include = "Id,ImageUrl,AccommodationId")] Image image)
         {
             if (ModelState.IsValid)
             {
-                db.Bookings.Add(booking);
+                db.Images.Add(image);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(booking);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Owner", image.AccommodationId);
+            return View(image);
         }
 
-        // GET: Bookings/Edit/5
+        // GET: Images/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Image image = db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Owner", image.AccommodationId);
+            return View(image);
         }
 
-        // POST: Bookings/Edit/5
+        // POST: Images/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Start,End")] Booking booking)
+        public ActionResult Edit([Bind(Include = "Id,ImageUrl,AccommodationId")] Image image)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(booking).State = EntityState.Modified;
+                db.Entry(image).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(booking);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Owner", image.AccommodationId);
+            return View(image);
         }
 
-        // GET: Bookings/Delete/5
+        // GET: Images/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Image image = db.Images.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            return View(image);
         }
 
-        // POST: Bookings/Delete/5
+        // POST: Images/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Booking booking = db.Bookings.Find(id);
-            db.Bookings.Remove(booking);
+            Image image = db.Images.Find(id);
+            db.Images.Remove(image);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -132,10 +132,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\AccommodationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HostsController.cs" />
-    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,17 +152,25 @@
     <Compile Include="Migrations\201904131952069_ControllersAdded.Designer.cs">
       <DependentUpon>201904131952069_ControllersAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904140815456_ForeignKeyChanges.cs" />
+    <Compile Include="Migrations\201904140815456_ForeignKeyChanges.Designer.cs">
+      <DependentUpon>201904140815456_ForeignKeyChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904140852294_ChangedPropertyToAccommodation.cs" />
+    <Compile Include="Migrations\201904140852294_ChangedPropertyToAccommodation.Designer.cs">
+      <DependentUpon>201904140852294_ChangedPropertyToAccommodation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Host.cs" />
     <Compile Include="Models\CozySmartContext.cs" />
     <Compile Include="Models\Image.cs" />
-    <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HostsDb.cs" />
     <Compile Include="Services\ImagesDb.cs" />
-    <Compile Include="Services\PropertiesDb.cs" />
+    <Compile Include="Services\AccommodationsDb.cs" />
     <Compile Include="Services\TenantsDb.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,11 +215,6 @@
     <Content Include="Views\Hosts\Details.cshtml" />
     <Content Include="Views\Hosts\Edit.cshtml" />
     <Content Include="Views\Hosts\Index.cshtml" />
-    <Content Include="Views\Properties\Create.cshtml" />
-    <Content Include="Views\Properties\Delete.cshtml" />
-    <Content Include="Views\Properties\Details.cshtml" />
-    <Content Include="Views\Properties\Edit.cshtml" />
-    <Content Include="Views\Properties\Index.cshtml" />
     <Content Include="Views\Bookings\Create.cshtml" />
     <Content Include="Views\Bookings\Delete.cshtml" />
     <Content Include="Views\Bookings\Details.cshtml" />
@@ -222,6 +225,16 @@
     <Content Include="Views\Tenants\Details.cshtml" />
     <Content Include="Views\Tenants\Edit.cshtml" />
     <Content Include="Views\Tenants\Index.cshtml" />
+    <Content Include="Views\Images\Create.cshtml" />
+    <Content Include="Views\Images\Delete.cshtml" />
+    <Content Include="Views\Images\Details.cshtml" />
+    <Content Include="Views\Images\Edit.cshtml" />
+    <Content Include="Views\Images\Index.cshtml" />
+    <Content Include="Views\Accommodations\Create.cshtml" />
+    <Content Include="Views\Accommodations\Delete.cshtml" />
+    <Content Include="Views\Accommodations\Details.cshtml" />
+    <Content Include="Views\Accommodations\Edit.cshtml" />
+    <Content Include="Views\Accommodations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904131952069_ControllersAdded.resx">
       <DependentUpon>201904131952069_ControllersAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904140815456_ForeignKeyChanges.resx">
+      <DependentUpon>201904140815456_ForeignKeyChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904140852294_ChangedPropertyToAccommodation.resx">
+      <DependentUpon>201904140852294_ChangedPropertyToAccommodation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

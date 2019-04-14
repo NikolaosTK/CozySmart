@@ -34,11 +34,7 @@ namespace SmartCoziness.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateJoined { get; set; }
 
-        public Property Property { get; set; }
-
-        [Display(Name = "Property Name")]
-        [Required]        
-        public int PropertyId { get; set; }
+        
 
         //Must add profile picture
     }

@@ -1,4 +1,4 @@
-﻿@model SmartCoziness.Models.Property
+﻿@model SmartCoziness.Models.Accommodation
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Property</h4>
+    <h4>Accommodation</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Image.ImageUrl)
+            @Html.DisplayNameFor(model => model.Host.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Image.ImageUrl)
+            @Html.DisplayFor(model => model.Host.FirstName)
         </dd>
 
         <dt>

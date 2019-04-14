@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SmartCoziness.Models
 {
-    public class Property
+    public class Accommodation
     {
         public int Id { get; set; }
 
@@ -40,10 +40,12 @@ namespace SmartCoziness.Models
 
         public int Availability { get; set; }
 
-        public Image Image { get; set; }
+        public Host Host { get; set; }
 
         [Required]
-        [Display(Name = "Image")]
-        public int ImageId { get; set; }
+        [Display(Name = "Owner")]
+        public int HostId { get; set; }
+
+        
     }
 }

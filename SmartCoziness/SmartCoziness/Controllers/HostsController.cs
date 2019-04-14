@@ -17,8 +17,7 @@ namespace SmartCoziness.Controllers
         // GET: Hosts
         public ActionResult Index()
         {
-            var hosts = db.Hosts.Include(h => h.Property);
-            return View(hosts.ToList());
+            return View(db.Hosts.ToList());
         }
 
         // GET: Hosts/Details/5
@@ -39,7 +38,6 @@ namespace SmartCoziness.Controllers
         // GET: Hosts/Create
         public ActionResult Create()
         {
-            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Owner");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Email,Adress,DateJoined,PropertyId")] Host host)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Email,Adress,DateJoined")] Host host)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace SmartCoziness.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Owner", host.PropertyId);
             return View(host);
         }
 
@@ -73,7 +70,6 @@ namespace SmartCoziness.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Owner", host.PropertyId);
             return View(host);
         }
 
@@ -82,7 +78,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Email,Adress,DateJoined,PropertyId")] Host host)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,Email,Adress,DateJoined")] Host host)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace SmartCoziness.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PropertyId = new SelectList(db.Properties, "Id", "Owner", host.PropertyId);
             return View(host);
         }
 

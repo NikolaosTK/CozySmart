@@ -7,41 +7,41 @@ using SmartCoziness.Models;
 namespace SmartCoziness.Services
 {
     /// <summary>
-    /// Helper class that is used to manage Properties
+    /// Helper class that is used to manage Accommodations
     /// </summary>
-    public class PropertiesDb
+    public class AccommodationsDb
     {
-        public static IEnumerable<Property> GetAll()
+        public static IEnumerable<Accommodation> GetAll()
         {
             using (var context = new CozySmartContext())
             {
-                return context.Properties.ToList();
+                return context.Accommodations.ToList();
             }
         }
 
-        public static Property GetById(int id)
+        public static Accommodation GetById(int id)
         {
             using (var context = new CozySmartContext())
             {
-                return context.Properties.Find(id);
+                return context.Accommodations.Find(id);
             }
         }
 
-        public static void Add(Property property)
+        public static void Add(Accommodation Accommodation)
         {
             using (var context = new CozySmartContext())
             {
-                context.Properties.Add(property);
+                context.Accommodations.Add(Accommodation);
                 context.SaveChanges();
             }
         }
 
-        public static void Update(Property property)
+        public static void Update(Accommodation Accommodation)
         {
             using (var context = new CozySmartContext())
             {
-                Property propertyToUpdate = context.Properties.Find(property.Id);
-                propertyToUpdate.Title = property.Title;
+                Accommodation AccommodationToUpdate = context.Accommodations.Find(Accommodation.Id);
+                AccommodationToUpdate.Title = Accommodation.Title;
                 context.SaveChanges();
             }
         }
@@ -50,8 +50,8 @@ namespace SmartCoziness.Services
         {
             using (var context = new CozySmartContext())
             {
-                Property property = context.Properties.Find(id);
-                context.Properties.Remove(property);
+                Accommodation Accommodation = context.Accommodations.Find(id);
+                context.Accommodations.Remove(Accommodation);
                 context.SaveChanges();
             }
         }

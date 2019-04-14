@@ -24,9 +24,9 @@ namespace SmartCoziness.Models
         public DbSet<Tenant> Tenants { get; set; }
 
         /// <summary>
-        /// Collection managing the properties
+        /// Collection managing the accommodations
         /// </summary>
-        public DbSet<Property> Properties { get; set; }
+        public DbSet<Accommodation> Accommodations { get; set; }
 
         public DbSet<Booking> Bookings { get; set; }
 

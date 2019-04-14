@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SmartCoziness.Models.Property>
+﻿@model IEnumerable<SmartCoziness.Models.Accommodation>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Image.ImageUrl)
+            @Html.DisplayNameFor(model => model.Host.FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Owner)
@@ -47,7 +47,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Image.ImageUrl)
+            @Html.DisplayFor(modelItem => item.Host.FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Owner)
