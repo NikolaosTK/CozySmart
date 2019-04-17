@@ -10,112 +10,112 @@ using SmartCoziness.Models;
 
 namespace SmartCoziness.Controllers
 {
-    public class AccommodationsController : Controller
+    public class BookingsController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
 
-        // GET: Accommodations
+        // GET: Bookings
         public ActionResult Index()
         {
-            var accommodations = db.Accommodations.Include(a => a.Host);
-            return View(accommodations.ToList());
+            var bookings = db.Bookings.Include(b => b.Accomodation);
+            return View(bookings.ToList());
         }
 
-        // GET: Accommodations/Details/5
+        // GET: Bookings/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Booking booking = db.Bookings.Find(id);
+            if (booking == null)
             {
                 return HttpNotFound();
             }
-            return View(accommodation);
+            return View(booking);
         }
 
-        // GET: Accommodations/Create
+        // GET: Bookings/Create
         public ActionResult Create()
         {
-            ViewBag.HostId = new SelectList(db.Hosts, "Id", "FirstName");
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title");
             return View();
         }
 
-        // POST: Accommodations/Create
+        // POST: Bookings/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
+        public ActionResult Create([Bind(Include = "Id,AccommodationId,Arrival,Departure,NumberOfTenants,Rating")] Booking booking)
         {
             if (ModelState.IsValid)
             {
-                db.Accommodations.Add(accommodation);
+                db.Bookings.Add(booking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.HostId = new SelectList(db.Hosts, "Id", "FirstName", accommodation.HostId);
-            return View(accommodation);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
+            return View(booking);
         }
 
-        // GET: Accommodations/Edit/5
+        // GET: Bookings/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Booking booking = db.Bookings.Find(id);
+            if (booking == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.HostId = new SelectList(db.Hosts, "Id", "FirstName", accommodation.HostId);
-            return View(accommodation);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
+            return View(booking);
         }
 
-        // POST: Accommodations/Edit/5
+        // POST: Bookings/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
+        public ActionResult Edit([Bind(Include = "Id,AccommodationId,Arrival,Departure,NumberOfTenants,Rating")] Booking booking)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(accommodation).State = EntityState.Modified;
+                db.Entry(booking).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.HostId = new SelectList(db.Hosts, "Id", "FirstName", accommodation.HostId);
-            return View(accommodation);
+            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
+            return View(booking);
         }
 
-        // GET: Accommodations/Delete/5
+        // GET: Bookings/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Booking booking = db.Bookings.Find(id);
+            if (booking == null)
             {
                 return HttpNotFound();
             }
-            return View(accommodation);
+            return View(booking);
         }
 
-        // POST: Accommodations/Delete/5
+        // POST: Bookings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Accommodation accommodation = db.Accommodations.Find(id);
-            db.Accommodations.Remove(accommodation);
+            Booking booking = db.Bookings.Find(id);
+            db.Bookings.Remove(booking);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
