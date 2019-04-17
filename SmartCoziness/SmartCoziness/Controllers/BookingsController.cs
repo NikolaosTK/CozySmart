@@ -18,7 +18,6 @@ namespace SmartCoziness.Controllers
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.Accomodation);
-            //var bookings = db.Bookings.ToList();
             return View(bookings.ToList());
         }
 
@@ -40,7 +39,6 @@ namespace SmartCoziness.Controllers
         // GET: Bookings/Create
         public ActionResult Create()
         {
-            //ViewBag.HostId = new SelectList(db.Hosts, "Id", "FirstName");
             ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title");
             return View();
         }
@@ -50,7 +48,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AccommodationId,Start,End,Rating")] Booking booking)
+        public ActionResult Create([Bind(Include = "Id,AccommodationId,Arrival,Departure,NumberOfTenants,Rating")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +56,6 @@ namespace SmartCoziness.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
 
             ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
             return View(booking);
@@ -85,7 +82,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AccommodationId,Start,End,Rating")] Booking booking)
+        public ActionResult Edit([Bind(Include = "Id,AccommodationId,Arrival,Departure,NumberOfTenants,Rating")] Booking booking)
         {
             if (ModelState.IsValid)
             {

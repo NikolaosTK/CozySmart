@@ -13,20 +13,23 @@ namespace SmartCoziness.Models
         public Accommodation Accomodation { get; set; }
 
         [Required]
-        [Display(Name = "Accommodation")]
+        [Display(Name="Accommodation")]
         public int AccommodationId { get; set; }
 
-        [Display(Name = "Date Start")]
+        [Display(Name="Arrival Date")]
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Start { get; set; }
+        public DateTime Arrival { get; set; }
 
-        [Display(Name = "Date End")]
+        [Display(Name="Departure Date")]
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime End { get; set; }
+        public DateTime Departure { get; set; }
+
+        [Display(Name="Number of Visitors")]
+        public int NumberOfTenants { get; set; }
 
         
         public int Rating { get; set; }

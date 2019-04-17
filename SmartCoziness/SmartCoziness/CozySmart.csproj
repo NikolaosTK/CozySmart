@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201904141340438_added-booking-3.Designer.cs">
       <DependentUpon>201904141340438_added-booking-3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904170834197_ChangeToAccommodationAndBooking.cs" />
+    <Compile Include="Migrations\201904170834197_ChangeToAccommodationAndBooking.Designer.cs">
+      <DependentUpon>201904170834197_ChangeToAccommodationAndBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Host.cs" />
@@ -242,11 +246,11 @@
     <Content Include="Views\Accommodations\Details.cshtml" />
     <Content Include="Views\Accommodations\Edit.cshtml" />
     <Content Include="Views\Accommodations\Index.cshtml" />
-    <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Bookings\Create.cshtml" />
-    <Content Include="Views\Bookings\Edit.cshtml" />
-    <Content Include="Views\Bookings\Details.cshtml" />
     <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -288,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904141340438_added-booking-3.resx">
       <DependentUpon>201904141340438_added-booking-3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904170834197_ChangeToAccommodationAndBooking.resx">
+      <DependentUpon>201904170834197_ChangeToAccommodationAndBooking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

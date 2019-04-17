@@ -15,10 +15,13 @@
             @Html.DisplayNameFor(model => model.Accomodation.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Start)
+            @Html.DisplayNameFor(model => model.Arrival)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.End)
+            @Html.DisplayNameFor(model => model.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfTenants)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Rating)
@@ -32,10 +35,13 @@
             @Html.DisplayFor(modelItem => item.Accomodation.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Start)
+            @Html.DisplayFor(modelItem => item.Arrival)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.End)
+            @Html.DisplayFor(modelItem => item.Departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfTenants)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Rating)

@@ -41,8 +41,8 @@ namespace SmartCoziness.Services
                 Booking bookToUpdate = context.Bookings.Find(booking.Id);
                 bookToUpdate.Id = booking.Id;
                 bookToUpdate.AccommodationId = booking.AccommodationId;
-                bookToUpdate.Start = booking.Start;
-                bookToUpdate.End = booking.End;
+                bookToUpdate.Arrival = booking.Arrival;
+                bookToUpdate.Departure = booking.Departure;
                 bookToUpdate.Rating = booking.Rating;
                 context.SaveChanges();
             }

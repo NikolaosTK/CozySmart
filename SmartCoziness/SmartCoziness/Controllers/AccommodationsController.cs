@@ -48,7 +48,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Owner,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
+        public ActionResult Create([Bind(Include = "Id,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace SmartCoziness.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Owner,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
+        public ActionResult Edit([Bind(Include = "Id,Title,Type,Description,Rooms,Baths,Adress,Rating,Availability,HostId")] Accommodation accommodation)
         {
             if (ModelState.IsValid)
             {
