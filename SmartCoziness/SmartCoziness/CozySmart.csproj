@@ -214,8 +214,18 @@
     <Compile Include="Migrations\201904170834197_ChangeToAccommodationAndBooking.Designer.cs">
       <DependentUpon>201904170834197_ChangeToAccommodationAndBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904240828591_AddedFeatureModel.cs" />
+    <Compile Include="Migrations\201904240828591_AddedFeatureModel.Designer.cs">
+      <DependentUpon>201904240828591_AddedFeatureModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904240918453_ChangedProperties.cs" />
+    <Compile Include="Migrations\201904240918453_ChangedProperties.Designer.cs">
+      <DependentUpon>201904240918453_ChangedProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Availability.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Feature.cs" />
     <Compile Include="Models\Host.cs" />
     <Compile Include="Models\CozySmartContext.cs" />
     <Compile Include="Models\Image.cs" />
@@ -336,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904170834197_ChangeToAccommodationAndBooking.resx">
       <DependentUpon>201904170834197_ChangeToAccommodationAndBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904240828591_AddedFeatureModel.resx">
+      <DependentUpon>201904240828591_AddedFeatureModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904240918453_ChangedProperties.resx">
+      <DependentUpon>201904240918453_ChangedProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

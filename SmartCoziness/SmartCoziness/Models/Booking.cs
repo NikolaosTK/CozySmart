@@ -29,9 +29,16 @@ namespace SmartCoziness.Models
         public DateTime Departure { get; set; }
 
         [Display(Name="Number of Visitors")]
-        public int NumberOfTenants { get; set; }
+        public int Occupancy { get; set; }
+
 
         
-        public int Rating { get; set; }
+        public int Rating { get; set; }//Not implemented yet
+
+        /*public Tenant Tenant { get; set; }
+
+        [Display(Name = "Tenant")]
+        [Required]
+        public int TenantId { get; set; }*/
     }
 }
