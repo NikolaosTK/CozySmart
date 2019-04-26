@@ -38,7 +38,7 @@ namespace CozySmart.Models
         /// <summary>
         /// Collection of accommodation types
         /// </summary>
-        public IDbSet<Type> Type { get; set; }
+        public IDbSet<Category> Categories { get; set; }
         
 
         /// <summary>

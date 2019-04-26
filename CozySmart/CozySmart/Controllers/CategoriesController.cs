@@ -10,112 +10,107 @@ using CozySmart.Models;
 
 namespace CozySmart.Controllers
 {
-    public class AccommodationsController : Controller
+    public class CategoriesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
 
-        // GET: Accommodations
+        // GET: Categories
         public ActionResult Index()
         {
-            var accommodations = db.Accommodations.Include(a => a.Category);
-            return View(accommodations.ToList());
+            return View(db.Categories.ToList());
         }
 
-        // GET: Accommodations/Details/5
+        // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(accommodation);
+            return View(category);
         }
 
-        // GET: Accommodations/Create
+        // GET: Categories/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Description");
             return View();
         }
 
-        // POST: Accommodations/Create
+        // POST: Categories/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Location,Adress,Description,Occupancy,Rooms,Baths,Price,CategoryId")] Accommodation accommodation)
+        public ActionResult Create([Bind(Include = "Id,Description")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Accommodations.Add(accommodation);
+                db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Description", accommodation.CategoryId);
-            return View(accommodation);
+            return View(category);
         }
 
-        // GET: Accommodations/Edit/5
+        // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Description", accommodation.CategoryId);
-            return View(accommodation);
+            return View(category);
         }
 
-        // POST: Accommodations/Edit/5
+        // POST: Categories/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Location,Adress,Description,Occupancy,Rooms,Baths,Price,CategoryId")] Accommodation accommodation)
+        public ActionResult Edit([Bind(Include = "Id,Description")] Category category)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(accommodation).State = EntityState.Modified;
+                db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Description", accommodation.CategoryId);
-            return View(accommodation);
+            return View(category);
         }
 
-        // GET: Accommodations/Delete/5
+        // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Accommodation accommodation = db.Accommodations.Find(id);
-            if (accommodation == null)
+            Category category = db.Categories.Find(id);
+            if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(accommodation);
+            return View(category);
         }
 
-        // POST: Accommodations/Delete/5
+        // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Accommodation accommodation = db.Accommodations.Find(id);
-            db.Accommodations.Remove(accommodation);
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

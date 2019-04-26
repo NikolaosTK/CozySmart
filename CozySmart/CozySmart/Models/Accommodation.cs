@@ -44,10 +44,10 @@ namespace CozySmart.Models
 
         public int Price { get; set; }
 
-        public Type Type { get; set; }
+        public Category Category { get; set; }
 
         [Required(ErrorMessage = "Type of property is required")]
-        public int TypeId { get; set; }
+        public int CategoryId { get; set; }
 
         public ICollection<Image> Images { get; set; }
 

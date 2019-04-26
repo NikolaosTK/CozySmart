@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CozySmart.Models
 {
-    public class Type
+    public class Category
     {
         public int Id { get; set; }
 
