@@ -37,7 +37,7 @@ namespace CozySmart.Models
 
         [Required(ErrorMessage="Multitude of rooms is required")]
         [Range(0, 20, ErrorMessage="You should have at most 20 Rooms")]
-        public int Rooms { get; set; }
+        public int Bedrooms { get; set; }
 
         [Range(1, 20, ErrorMessage="You should have at least 1 Room")]
         public int Baths { get; set; }
@@ -47,6 +47,7 @@ namespace CozySmart.Models
         public Category Category { get; set; }
 
         [Required(ErrorMessage = "Type of property is required")]
+        [Display(Name = "Accommodation Category")]
         public int CategoryId { get; set; }
 
         public ICollection<Image> Images { get; set; }

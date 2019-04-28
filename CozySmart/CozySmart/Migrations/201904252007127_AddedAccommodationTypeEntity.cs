@@ -3,7 +3,7 @@ namespace CozySmart.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedAccommodationTypeEntity : DbMigration
+    public partial class AddedCategoryEntity : DbMigration
     {
         public override void Up()
         {

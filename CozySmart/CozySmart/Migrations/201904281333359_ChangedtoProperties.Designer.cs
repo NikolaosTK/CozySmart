@@ -7,13 +7,13 @@ namespace CozySmart.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedCategoryEntity : IMigrationMetadata
+    public sealed partial class ChangedtoProperties : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedCategoryEntity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedtoProperties));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904252007127_AddedCategoryEntity"; }
+            get { return "201904281333359_ChangedtoProperties"; }
         }
         
         string IMigrationMetadata.Source

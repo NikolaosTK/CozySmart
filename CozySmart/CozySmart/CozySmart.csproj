@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201904261652502_AddedAccommodationViewModels.Designer.cs">
       <DependentUpon>201904261652502_AddedAccommodationViewModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904281333359_ChangedtoProperties.cs" />
+    <Compile Include="Migrations\201904281333359_ChangedtoProperties.Designer.cs">
+      <DependentUpon>201904281333359_ChangedtoProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
@@ -297,9 +301,7 @@
     <Content Include="Views\Amenities\Edit.cshtml" />
     <Content Include="Views\Amenities\Index.cshtml" />
     <Content Include="Views\Accommodations\Create.cshtml" />
-    <Content Include="Views\Accommodations\Delete.cshtml" />
     <Content Include="Views\Accommodations\Details.cshtml" />
-    <Content Include="Views\Accommodations\Edit.cshtml" />
     <Content Include="Views\Accommodations\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
@@ -311,6 +313,7 @@
     <Content Include="Views\Images\Details.cshtml" />
     <Content Include="Views\Images\Edit.cshtml" />
     <Content Include="Views\Images\Index.cshtml" />
+    <Content Include="Views\Accommodations\AccommodationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904261652502_AddedAccommodationViewModels.resx">
       <DependentUpon>201904261652502_AddedAccommodationViewModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281333359_ChangedtoProperties.resx">
+      <DependentUpon>201904281333359_ChangedtoProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
