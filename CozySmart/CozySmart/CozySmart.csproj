@@ -300,7 +300,6 @@
     <Content Include="Views\Amenities\Details.cshtml" />
     <Content Include="Views\Amenities\Edit.cshtml" />
     <Content Include="Views\Amenities\Index.cshtml" />
-    <Content Include="Views\Accommodations\Create.cshtml" />
     <Content Include="Views\Accommodations\Details.cshtml" />
     <Content Include="Views\Accommodations\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />

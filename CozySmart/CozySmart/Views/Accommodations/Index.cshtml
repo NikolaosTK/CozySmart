@@ -15,52 +15,26 @@
 }
 else
 {
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Location)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adress)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Occupancy)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>*Booking Button*</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var accommodation in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(accommodation.Title, "Details", "Accommodations", new { id = accommodation.Id}, null)
-                    </td>                    
-                    <td>
-                        @Html.DisplayFor(modelItem => accommodation.Location)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => accommodation.Adress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => accommodation.Occupancy)
-                    </td>                    
-                    <td>
-                        @Html.DisplayFor(modelItem => accommodation.Price)
-                    </td>    
-                    <td>
-                        <a href="~/Bookings/Create" class=" = btn btn-success" role="button">Book It Now</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
+    <div class="row">
+        @foreach (var accommodation in Model)
+        {
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90" class="img-thumbnail" alt="Cinque Terre">
+                        <h2 class="panel-title text-center">@accommodation.Title</h2>
+                    </div>
+                    <div class="panel-body text-center">
+                        Location: @accommodation.Location <br/>
+                        Price: @accommodation.Price
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a href="~/Accommodations/Details/@accommodation.Id" class=" = btn btn-success" role="button">Details</a>
+                    </div>
+                </div>
 
-    </table>
+
+            </div>
+        }
+    </div>
 }
