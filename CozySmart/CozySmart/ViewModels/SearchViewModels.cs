@@ -33,7 +33,9 @@ namespace CozySmart.ViewModels
     }
 
     public class SearchResultViewModel
-    {        
-       public IEnumerable<Accommodation> AccommodationResults { get; set; }
+    {
+        
+
+        public IEnumerable<Accommodation> AccommodationResults { get; set; }
     }
 }

@@ -14,4 +14,13 @@ namespace CozySmart.ViewModels
 
         public IEnumerable<Amenity> Amenities { get; set; }
     }
+
+    public class DetailsViewModel
+    {
+        public Accommodation Accommodation { get; set; }
+
+        public IEnumerable<Image> Images { get; set; }        
+
+        public IEnumerable<Amenity> Amenities { get; set; }
+    }
 }

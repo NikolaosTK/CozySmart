@@ -43,7 +43,7 @@ namespace CozySmart.Models
         public int? Baths { get; set; }
 
         [Required(ErrorMessage = "The price of the accommodation is required")]
-        public int Price { get; set; }
+        public int? Price { get; set; }
 
         
 
