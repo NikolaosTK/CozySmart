@@ -7,19 +7,67 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CozySmart.Models;
+using CozySmart.ViewModels;
 
 namespace CozySmart.Controllers
 {
     public class BookingsController : Controller
     {
-        private CozySmartContext db = new CozySmartContext();
+        private CozySmartContext _db;
+
+        public BookingsController()
+        {
+            _db = new CozySmartContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         // GET: Bookings
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.Accomodation);
+            var bookings = _db.Bookings.Include(b => b.Accomodation);
             return View(bookings.ToList());
         }
+
+        public ActionResult New()
+        {
+            var viewModel = new BookingFormViewModel
+            {
+                Booking = new Booking()
+                
+            };
+
+            return View("AccommodationForm", viewModel);
+        }
+
+        public ActionResult Save(Booking booking)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookingFormViewModel
+                {
+                    Booking = booking
+                    
+                };
+
+                return View("AccommodationForm", viewModel);
+            }
+
+            _db.Bookings.Add(booking);           
+
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Bookings");
+        }
+
+
 
         // GET: Bookings/Details/5
         public ActionResult Details(int? id)
@@ -28,7 +76,7 @@ namespace CozySmart.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = _db.Bookings.Find(id);
             if (booking == null)
             {
                 return HttpNotFound();
@@ -39,7 +87,7 @@ namespace CozySmart.Controllers
         // GET: Bookings/Create
         public ActionResult Create()
         {
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title");
+            ViewBag.AccommodationId = new SelectList(_db.Accommodations, "Id", "Title");
             return View();
         }
 
@@ -52,81 +100,15 @@ namespace CozySmart.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Bookings.Add(booking);
-                db.SaveChanges();
+                _db.Bookings.Add(booking);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
+            ViewBag.AccommodationId = new SelectList(_db.Accommodations, "Id", "Title", booking.AccommodationId);
             return View(booking);
         }
 
-        // GET: Bookings/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
-            return View(booking);
-        }
-
-        // POST: Bookings/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ApplicationUserId,AccommodationId,Arrival,Departure,Occupancy,Rating")] Booking booking)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(booking).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", booking.AccommodationId);
-            return View(booking);
-        }
-
-        // GET: Bookings/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
-            {
-                return HttpNotFound();
-            }
-            return View(booking);
-        }
-
-        // POST: Bookings/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Booking booking = db.Bookings.Find(id);
-            db.Bookings.Remove(booking);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

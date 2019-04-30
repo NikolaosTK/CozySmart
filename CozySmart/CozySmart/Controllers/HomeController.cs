@@ -10,7 +10,7 @@ namespace CozySmart.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("SearchForm");
         }
 
         public ActionResult About()
@@ -20,11 +20,6 @@ namespace CozySmart.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

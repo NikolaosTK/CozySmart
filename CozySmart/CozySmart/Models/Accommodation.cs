@@ -25,7 +25,7 @@ namespace CozySmart.Models
         [DataType(DataType.Text)]
         public string Location { get; set; }
 
-        [Required(ErrorMessage = "Adress of property is required")]
+        [StringLength(100, ErrorMessage = "The adress cannot exceed 100 characters")]
         public string Adress { get; set; }
 
         [StringLength(100, ErrorMessage="Description of property should be a maximum of 100 characters")]
@@ -33,15 +33,16 @@ namespace CozySmart.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = " Occupancy is required")]
-        public int Occupancy { get; set; }
+        public byte Occupancy { get; set; }
 
         
         [Range(0, 20, ErrorMessage="You should have at most 20 Rooms")]
-        public int Bedrooms { get; set; }
+        public int? Bedrooms { get; set; }
 
         [Range(1, 20, ErrorMessage="You should have at least 1 Room")]
-        public int Baths { get; set; }
+        public int? Baths { get; set; }
 
+        [Required(ErrorMessage = "The price of the accommodation is required")]
         public int Price { get; set; }
 
         

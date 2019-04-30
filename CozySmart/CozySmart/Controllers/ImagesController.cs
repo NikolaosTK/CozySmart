@@ -48,7 +48,7 @@ namespace CozySmart.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ImageUrl,AccommodationId")] Image image)
+        public ActionResult Create([Bind(Include = "Id,Title,ImageUrl,AccommodationId")] Image image)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace CozySmart.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ImageUrl,AccommodationId")] Image image)
+        public ActionResult Edit([Bind(Include = "Id,Title,ImageUrl,AccommodationId")] Image image)
         {
             if (ModelState.IsValid)
             {

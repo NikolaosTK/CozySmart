@@ -6,47 +6,94 @@
 <h2 class="col-md-offset-2">New Accommodation</h2>
 <hr />
 
+
 @using (Html.BeginForm("Save", "Accommodations"))
 {
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Title)
-        @Html.TextBoxFor(m => m.Accommodation.Title, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Location)
-        @Html.TextBoxFor(m => m.Accommodation.Location, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Adress)
-        @Html.TextBoxFor(m => m.Accommodation.Adress, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.CategoryId)
-        @Html.DropDownListFor(m => m.Accommodation.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "Select a category", new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Occupancy)
-        @Html.TextBoxFor(m => m.Accommodation.Occupancy, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Bedrooms)
-        @Html.TextBoxFor(m => m.Accommodation.Bedrooms, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Baths)
-        @Html.TextBoxFor(m => m.Accommodation.Baths, new { @class = "form-control" })
-    </div>
-    <div class="form-group-sm">
-        @Html.LabelFor(m => m.Accommodation.Price)
-        @Html.TextBoxFor(m => m.Accommodation.Price, new { @class = "form-control" })
-    </div>
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "Please fix the following errors")
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Accommodation.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Accommodation.Location, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Location)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Accommodation.Adress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Adress)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Accommodation.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "Select a category", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.CategoryId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Occupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Accommodation.Occupancy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Occupancy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Bedrooms, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                @Html.TextBoxFor(m => m.Accommodation.Bedrooms, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Bedrooms)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Baths, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                @Html.TextBoxFor(m => m.Accommodation.Baths, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Baths)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Accommodation.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                @Html.TextBoxFor(m => m.Accommodation.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Accommodation.Price)
+            </div>
+        </div>
 
 
 
 
-    @Html.HiddenFor(m => m.Accommodation.Id)
+        @Html.HiddenFor(m => m.Accommodation.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.AntiForgeryToken()
 
-    <br />
-    <button type="submit" class="btn btn-primary">Save</button>
+        <br />
 
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-7">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 }

@@ -32,17 +32,22 @@ namespace CozySmart.Controllers
 
         
         //GET: Accomodations/Search/?location=XXXX&searchArrival=XXX&searchDeparture=XXX&occupancy=XXXX
-        //public ActionResult Search(string location, DateTime? searchArrival, DateTime? searchDeparture, byte? occupancy)
-        //{
-        //    if (String.IsNullOrWhiteSpace(location)) { }
-            
-        //    if(!searchArrival.HasValue || !searchDeparture.HasValue) { }
+        public ActionResult Search(SearchFormViewModel searchModel)
+        {
+            searchModel.Accommodations = _db.Accommodations.ToList();
+            searchModel.Bookings = _db.Bookings.ToList();
 
-        //    if (!occupancy.HasValue) { }
+            var results = _db.Accommodations
+                                .Where(a => a.Location == searchModel.SearchLocation).ToList();
 
-        //    //Implementing LINQ for finding correct accommodations
-            
-        //}
+            //Implementing LINQ for finding correct accommodations
+
+            //AccommodationResults = LINQ.ToList();
+
+
+
+            return View(results);
+        }
 
         // GET: Accommodations
         public ActionResult Index()
@@ -53,19 +58,32 @@ namespace CozySmart.Controllers
 
         public ActionResult New()
         {
-            var categories = _db.Categories.ToList();
-
             var viewModel = new AccommodationFormViewModel
             {
-                Categories = categories
+                Accommodation = new Accommodation(),
+                Categories = _db.Categories.ToList(),
+                Amenities = _db.Amenities.ToList()
             };
 
             return View("AccommodationForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Accommodation accommodation)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new AccommodationFormViewModel
+                {
+                    Accommodation = accommodation,
+                    Categories = _db.Categories.ToList(),
+                    Amenities = _db.Amenities.ToList()
+                };
+
+                return View("AccommodationForm", viewModel);
+            }
+
             if(accommodation.Id == 0)
             {
                 _db.Accommodations.Add(accommodation);
@@ -81,7 +99,7 @@ namespace CozySmart.Controllers
             return RedirectToAction("Index", "Accommodations");
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             var accommodation = _db.Accommodations.SingleOrDefault(a => a.Id == id);
 
@@ -91,7 +109,8 @@ namespace CozySmart.Controllers
             var viewModel = new AccommodationFormViewModel
             {
                 Accommodation = accommodation,
-                Categories = _db.Categories.ToList()
+                Categories = _db.Categories.ToList(),
+                Amenities = _db.Amenities.ToList()
             };
 
             return View("AccommodationForm", viewModel);

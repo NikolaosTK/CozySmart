@@ -1,0 +1,51 @@
+﻿@model CozySmart.ViewModels.SearchFormViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Search Form</h2>
+
+@using (Html.BeginForm("Search", "Accommodations", FormMethod.Get, new { @class = "multi-data/form-control" }))
+{
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SearchLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SearchLocation, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SearchLocation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SearchArrival, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SearchArrival, "{0: dd-MMM-yyyy}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SearchArrival)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SearchDeparture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SearchDeparture, "{0: dd-MMM-yyyy}", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SearchDeparture)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SearchOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SearchOccupancy, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SearchOccupancy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-7">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+
+    </div>
+}

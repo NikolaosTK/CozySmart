@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<CozySmart.Models.Accommodation>
-
 @{
-    ViewBag.Title = "Accommodations";
+    ViewBag.Title = "Search";
 }
 
-<h2>Accommodations</h2>
+<h2>Search Result</h2>
+
 <p>
-    @Html.ActionLink("Add a new Accommodation", "New", "Accommodations")
+    @Html.ActionLink("Make a new Search", "Index", "Home")
 </p>
 
 @if (!Model.Any())
 {
-    <p>There are not any accommodation yet.</p>
+    <p>There are not any accommodation fitting the criteria.</p>
 }
 else
 {

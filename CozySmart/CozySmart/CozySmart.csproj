@@ -218,6 +218,18 @@
     <Compile Include="Migrations\201904281333359_ChangedtoProperties.Designer.cs">
       <DependentUpon>201904281333359_ChangedtoProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904282135240_AddedPropsToImages.cs" />
+    <Compile Include="Migrations\201904282135240_AddedPropsToImages.Designer.cs">
+      <DependentUpon>201904282135240_AddedPropsToImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904291857269_ChangedAccommodationValidation.cs" />
+    <Compile Include="Migrations\201904291857269_ChangedAccommodationValidation.Designer.cs">
+      <DependentUpon>201904291857269_ChangedAccommodationValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904292044548_ChangedBooking.cs" />
+    <Compile Include="Migrations\201904292044548_ChangedBooking.Designer.cs">
+      <DependentUpon>201904292044548_ChangedBooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
@@ -227,12 +239,15 @@
     <Compile Include="Models\Amenity.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="ViewModels\BookingViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\SearchViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\bootstrap-sandstone.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -267,8 +282,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SearchForm.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -291,28 +305,24 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Bookings\Create.cshtml" />
-    <Content Include="Views\Bookings\Delete.cshtml" />
     <Content Include="Views\Bookings\Details.cshtml" />
-    <Content Include="Views\Bookings\Edit.cshtml" />
     <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Amenities\Create.cshtml" />
     <Content Include="Views\Amenities\Delete.cshtml" />
-    <Content Include="Views\Amenities\Details.cshtml" />
-    <Content Include="Views\Amenities\Edit.cshtml" />
     <Content Include="Views\Amenities\Index.cshtml" />
     <Content Include="Views\Accommodations\Details.cshtml" />
     <Content Include="Views\Accommodations\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Accommodations\AccommodationForm.cshtml" />
     <Content Include="Views\Images\Create.cshtml" />
     <Content Include="Views\Images\Delete.cshtml" />
     <Content Include="Views\Images\Details.cshtml" />
     <Content Include="Views\Images\Edit.cshtml" />
     <Content Include="Views\Images\Index.cshtml" />
-    <Content Include="Views\Accommodations\AccommodationForm.cshtml" />
+    <Content Include="Views\Bookings\BookingForm.cshtml" />
+    <Content Include="Views\Accommodations\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -360,6 +370,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904281333359_ChangedtoProperties.resx">
       <DependentUpon>201904281333359_ChangedtoProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904282135240_AddedPropsToImages.resx">
+      <DependentUpon>201904282135240_AddedPropsToImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291857269_ChangedAccommodationValidation.resx">
+      <DependentUpon>201904291857269_ChangedAccommodationValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904292044548_ChangedBooking.resx">
+      <DependentUpon>201904292044548_ChangedBooking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
