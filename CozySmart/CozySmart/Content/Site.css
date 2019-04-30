@@ -34,16 +34,3 @@ textarea {
 .validation-summary-errors{
     color: crimson;
 }
-
-.bg {
-    /* The image used */
-    background-image: url("https://wandertrust.in/wp-content/uploads/2015/07/WanderTrust-Banner-10.jpg");
-
-    /* Full height */
-
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}

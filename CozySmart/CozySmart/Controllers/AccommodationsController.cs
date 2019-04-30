@@ -37,16 +37,20 @@ namespace CozySmart.Controllers
             searchModel.Accommodations = _db.Accommodations.ToList();
             searchModel.Bookings = _db.Bookings.ToList();
 
-            var results = _db.Accommodations
+            
+            var locationResults = _db.Accommodations.ToList();
+            
+            
+            if(searchModel.SearchLocation != null)
+            {
+                locationResults = locationResults
                                 .Where(a => a.Location == searchModel.SearchLocation).ToList();
+            }
 
             //Implementing LINQ for finding correct accommodations
+            //var generalResults = mergeAboveLists.ToList();
 
-            //AccommodationResults = LINQ.ToList();
-
-
-
-            return View(results);
+            return View(locationResults);
         }
 
         // GET: Accommodations
