@@ -15,12 +15,14 @@ namespace CozySmart.ViewModels
 
         [Required]
         [Display(Name = "Arrival")]
-        [DisplayFormat(DataFormatString = "{0: dd-MMM-yyyy}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
         public DateTime SearchArrival { get; set; }
 
         [Required]
         [Display(Name = "Departure")]
-        [DisplayFormat(DataFormatString = "{0: dd-MMM-yyyy}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
         public DateTime SearchDeparture { get; set; }
 
         [Required]
