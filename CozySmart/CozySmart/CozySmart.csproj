@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201904292044548_ChangedBooking.Designer.cs">
       <DependentUpon>201904292044548_ChangedBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905031615084_AddedThumbnailToAccommodation.cs" />
+    <Compile Include="Migrations\201905031615084_AddedThumbnailToAccommodation.Designer.cs">
+      <DependentUpon>201905031615084_AddedThumbnailToAccommodation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904292044548_ChangedBooking.resx">
       <DependentUpon>201904292044548_ChangedBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905031615084_AddedThumbnailToAccommodation.resx">
+      <DependentUpon>201905031615084_AddedThumbnailToAccommodation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

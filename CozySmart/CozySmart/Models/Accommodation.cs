@@ -27,6 +27,10 @@ namespace CozySmart.Models
 
         [StringLength(100, ErrorMessage = "The adress cannot exceed 100 characters")]
         public string Adress { get; set; }
+       
+        [Required(ErrorMessage = "Every accommodation must have a thumbnail")]
+        [DataType(DataType.ImageUrl)]
+        public string Thumbnail { get; set; }
 
         [StringLength(100, ErrorMessage="Description of property should be a maximum of 100 characters")]
         [DataType(DataType.MultilineText)]
@@ -34,7 +38,6 @@ namespace CozySmart.Models
 
         [Required(ErrorMessage = " Occupancy is required")]
         public byte Occupancy { get; set; }
-
         
         [Range(0, 20, ErrorMessage="You should have at most 20 Rooms")]
         public int? Bedrooms { get; set; }
@@ -45,7 +48,8 @@ namespace CozySmart.Models
         [Required(ErrorMessage = "The price of the accommodation is required")]
         public int? Price { get; set; }
 
-        
+
+
 
         public Category Category { get; set; }
 
