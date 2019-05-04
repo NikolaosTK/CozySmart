@@ -66,7 +66,10 @@ namespace CozySmart.Controllers
             {
                 Accommodation = new Accommodation(),
                 Categories = _db.Categories.ToList(),
-                Amenities = _db.Amenities.ToList()
+                Amenities = _db.Amenities.Select(a => new AmenityViewModel {
+                    Id = a.Id,
+                    Description = a.Description
+                })
             };
 
             return View("AccommodationForm", viewModel);
@@ -82,7 +85,7 @@ namespace CozySmart.Controllers
                 {
                     Accommodation = accommodation,
                     Categories = _db.Categories.ToList(),
-                    Amenities = _db.Amenities.ToList()
+                    
                 };
 
                 return View("AccommodationForm", viewModel);
@@ -96,6 +99,15 @@ namespace CozySmart.Controllers
             {
                 var savingAccommodation = _db.Accommodations.Single(a => a.Id == accommodation.Id);
                 savingAccommodation.Title = accommodation.Title;
+                savingAccommodation.Location = accommodation.Location;
+                savingAccommodation.Adress = accommodation.Adress;
+                savingAccommodation.Thumbnail = accommodation.Thumbnail;
+                savingAccommodation.Bedrooms = accommodation.Bedrooms;
+                savingAccommodation.Baths = accommodation.Baths;
+                savingAccommodation.Description = accommodation.Description;
+                savingAccommodation.Price = accommodation.Price;
+                savingAccommodation.CategoryId = accommodation.CategoryId;
+
             }
 
             _db.SaveChanges();
@@ -114,7 +126,7 @@ namespace CozySmart.Controllers
             {
                 Accommodation = accommodation,
                 Categories = _db.Categories.ToList(),
-                Amenities = _db.Amenities.ToList()
+                
             };
 
             return View("AccommodationForm", viewModel);

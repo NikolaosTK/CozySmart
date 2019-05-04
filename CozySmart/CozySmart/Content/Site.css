@@ -34,3 +34,24 @@ textarea {
 .validation-summary-errors{
     color: crimson;
 }
+
+.img-thumbnail{
+    min-width:100%;
+    max-width:100%;
+
+    min-height:160px;
+    max-height:160px;
+}
+
+/*body, html {
+    height:100%;
+
+    padding-top: 50px;
+
+
+    background-image: url(https://www.wetravel.com/stories/wp-content/uploads/2016/08/planning-_a_group_trip.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}*/

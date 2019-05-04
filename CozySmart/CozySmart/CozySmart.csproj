@@ -329,6 +329,7 @@
     <Content Include="Views\Images\Index.cshtml" />
     <Content Include="Views\Bookings\BookingForm.cshtml" />
     <Content Include="Views\Accommodations\Search.cshtml" />
+    <Content Include="Views\Accommodations\Carousel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

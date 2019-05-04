@@ -79,10 +79,15 @@
             </div>
         </div>
 
+        @*@foreach (var amenity in Model.Amenities)
+        {
+            @Html.CheckBoxFor(amenity.IsChecked)
+        }*@
+
         <div class="form-group">
             @Html.LabelFor(m => m.Accommodation.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Description, new { @class = "form-control" })
+                @Html.TextAreaFor(m => m.Accommodation.Description, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Accommodation.Description)
 
             </div>

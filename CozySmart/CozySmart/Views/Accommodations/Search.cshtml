@@ -21,7 +21,7 @@ else
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90" class="img-thumbnail" alt="Cinque Terre">
+                        <img src="@accommodation.Thumbnail" class="img-thumbnail" alt="Thumbnail">
                         <h2 class="panel-title text-center">@accommodation.Title</h2>
                     </div>
                     <div class="panel-body text-center">
@@ -29,8 +29,7 @@ else
                         Price: @accommodation.Price
                     </div>
                     <div class="panel-footer text-center">
-                        <a href="~/Accommodations/Details/@accommodation.Id" class=" = btn btn-success" role="button">Details</a>
-                        <a href="~/Bookings/Create/@accommodation.Id" class=" = btn btn-success" role="button">Book</a>
+                        <a href="~/Accommodations/Details/@accommodation.Id" class=" = btn btn-success" role="button">Learn more</a>
                     </div>
                 </div>
             </div>

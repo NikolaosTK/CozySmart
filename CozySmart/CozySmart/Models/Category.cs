@@ -11,6 +11,7 @@ namespace CozySmart.Models
         public int Id { get; set; }
 
         [DataType(DataType.Text)]
+        [Display(Name = "Category")]
         public string Description { get; set; }
 
         public ICollection<Accommodation> Accommodations { get; set; }

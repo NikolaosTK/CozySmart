@@ -12,7 +12,16 @@ namespace CozySmart.ViewModels
 
         public IEnumerable<Category> Categories { get; set; }
 
-        public IEnumerable<Amenity> Amenities { get; set; }
+        public IEnumerable<AmenityViewModel> Amenities { get; set; }
+    }
+
+    public class AmenityViewModel
+    {
+        public int Id { get; set; }
+
+        public string Description { get; set; }
+
+        public bool IsChecked { get; set; }
     }
 
     public class DetailsViewModel
