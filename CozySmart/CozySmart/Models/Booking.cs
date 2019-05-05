@@ -24,12 +24,8 @@ namespace CozySmart.Models
         [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Departure { get; set; }
 
-        [Display(Name="Number of Visitors")]
-        public int Occupancy { get; set; }
 
-
-
-        public Accommodation Accomodation { get; set; }
+        public Accommodation Accommodation { get; set; }
 
         [Required]
         [Display(Name = "Accommodation")]

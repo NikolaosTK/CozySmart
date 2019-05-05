@@ -31,26 +31,50 @@ namespace CozySmart.Controllers
         }
 
         
-        //GET: Accomodations/Search/?location=XXXX&searchArrival=XXX&searchDeparture=XXX&occupancy=XXXX
+        //GET: Accommodations/Search/?location=XXXX&searchArrival=XXX&searchDeparture=XXX&occupancy=XXXX
         public ActionResult Search(SearchFormViewModel searchModel)
         {
             searchModel.Accommodations = _db.Accommodations.ToList();
             searchModel.Bookings = _db.Bookings.ToList();
 
             
-            var locationResults = _db.Accommodations.ToList();
+            var searchResults = _db.Accommodations.ToList();
             
             
             if(searchModel.SearchLocation != null)
             {
-                locationResults = locationResults
+                searchResults = searchResults
                                 .Where(a => a.Location == searchModel.SearchLocation).ToList();
             }
 
-            //Implementing LINQ for finding correct accommodations
-            //var generalResults = mergeAboveLists.ToList();
+            if (searchModel.SearchArrival != null && searchModel.SearchDeparture != null)
+            {
+                foreach (var accommodation in searchResults.ToList())
+                {
+                    var accommodationBookings = searchModel.Bookings.Where(b => b.AccommodationId == accommodation.Id);
 
-            return View(locationResults);
+                    foreach (var booking in accommodationBookings)
+                    {
+                        if (searchModel.SearchArrival <= booking.Departure && searchModel.SearchDeparture >= booking.Arrival)
+                        {
+                            searchResults.Remove(accommodation);
+                        }
+                    }
+                }
+            }
+
+            if (searchModel.SearchOccupancy != null)
+            {
+                searchResults = searchResults
+                                .Where(a => a.Occupancy >= searchModel.SearchOccupancy).ToList();
+            }
+
+            Session["Dates"] = new DatesViewModel { SearchArrival = searchModel.SearchArrival,
+                                                    SearchDeparture = searchModel.SearchDeparture };
+
+
+
+            return View(searchResults);
         }
 
         // GET: Accommodations
@@ -69,7 +93,7 @@ namespace CozySmart.Controllers
                 Amenities = _db.Amenities.Select(a => new AmenityViewModel {
                     Id = a.Id,
                     Description = a.Description
-                })
+                }).ToList()
             };
 
             return View("AccommodationForm", viewModel);

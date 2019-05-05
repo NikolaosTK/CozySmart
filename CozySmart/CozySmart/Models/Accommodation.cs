@@ -37,7 +37,7 @@ namespace CozySmart.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = " Occupancy is required")]
-        public byte Occupancy { get; set; }
+        public byte? Occupancy { get; set; }
         
         [Range(0, 20, ErrorMessage="You should have at most 20 Rooms")]
         public int? Bedrooms { get; set; }

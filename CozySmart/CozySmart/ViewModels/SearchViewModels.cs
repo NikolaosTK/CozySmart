@@ -27,17 +27,18 @@ namespace CozySmart.ViewModels
 
         [Required]
         [Display(Name = "Occupancy")]
-        public byte SearchOccupancy { get; set; }
+        public byte? SearchOccupancy { get; set; }
 
         public IEnumerable<Accommodation> Accommodations { get; set; }
 
         public IEnumerable<Booking> Bookings { get; set; }
     }
 
-    public class SearchResultViewModel
+    public class DatesViewModel
     {
-        
+        public DateTime SearchArrival { get; set; }
 
-        public IEnumerable<Accommodation> AccommodationResults { get; set; }
+        public DateTime SearchDeparture { get; set; }
+
     }
 }

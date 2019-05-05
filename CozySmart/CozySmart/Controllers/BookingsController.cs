@@ -29,10 +29,27 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult AutoBooking(int id)
+        {
+            var dates = Session["Dates"] as DatesViewModel;
+
+            Booking newBooking = new Booking
+            {
+                AccommodationId = id,
+                Arrival = dates.SearchArrival,
+                Departure = dates.SearchDeparture
+            };
+
+            _db.Bookings.Add(newBooking);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Bookings");
+        }
+
         // GET: Bookings
         public ActionResult Index()
         {
-            var bookings = _db.Bookings.Include(b => b.Accomodation);
+            var bookings = _db.Bookings.Include(b => b.Accommodation);
             return View(bookings.ToList());
         }
 
