@@ -9,112 +9,115 @@
 
 @using (Html.BeginForm("Save", "Accommodations"))
 {
-    <div class="form-horizontal">
+<div class="form-horizontal">
 
-        @Html.ValidationSummary(true, "Please fix the following errors")
+    @Html.ValidationSummary(true, "Please fix the following errors")
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Title, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Title)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Location, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Location)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Adress, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Adress)
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Thumbnail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Thumbnail, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Thumbnail)
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.Accommodation.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "Select a category", new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.CategoryId)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Occupancy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Accommodation.Occupancy, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Occupancy)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Bedrooms, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10 ">
-                @Html.TextBoxFor(m => m.Accommodation.Bedrooms, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Bedrooms)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Baths, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10 ">
-                @Html.TextBoxFor(m => m.Accommodation.Baths, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Baths)
-            </div>
-        </div>
-
-        @*@foreach (var amenity in Model.Amenities)
-        {
-            @Html.CheckBoxFor(amenity.IsChecked)
-        }*@
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(m => m.Accommodation.Description, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Description)
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Accommodation.Price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10 ">
-                @Html.TextBoxFor(m => m.Accommodation.Price, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Accommodation.Price)
-            </div>
-        </div>
-
-
-
-
-        @Html.HiddenFor(m => m.Accommodation.Id)
-        @Html.AntiForgeryToken()
-
-        <br />
-
-        <div class="form-group">
-            <div class="col-md-offset-3 col-md-7">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Title)
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Location, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Location)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adress, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Adress)
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Thumbnail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Thumbnail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Thumbnail)
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categories, "Id", "Description"), "Select a category", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CategoryId)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Occupancy, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Occupancy, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Occupancy)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bedrooms, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 ">
+            @Html.TextBoxFor(m => m.Bedrooms, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Bedrooms)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Baths, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 ">
+            @Html.TextBoxFor(m => m.Baths, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Baths)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Description)
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10 ">
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Price)
+        </div>
+    </div>
+
+    @for (int i = 0; i < Model.Amenities.Count(); i++)
+    {
+        <div class="form-group col-md-2">
+            @Html.HiddenFor(m => m.Amenities[i].Id)
+            @Html.CheckBoxFor(m => m.Amenities[i].IsChecked)
+            @Html.LabelFor(m => m.Amenities[i].IsChecked, Model.Amenities[i].Display)
+        </div>
+    }
+
+
+
+        @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-7">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>
 }
 
 @section scripts{

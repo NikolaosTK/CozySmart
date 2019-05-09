@@ -10,7 +10,7 @@ namespace CozySmart.Controllers
     {
         public ActionResult Index()
         {
-            return View("SearchForm");
+            return View();
         }
 
         public ActionResult About()

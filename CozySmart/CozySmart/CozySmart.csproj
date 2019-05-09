@@ -178,6 +178,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\AccommodationManager.cs" />
+    <Compile Include="Managers\AmenitiesManager.cs" />
     <Compile Include="Migrations\201904251047584_Initial.cs" />
     <Compile Include="Migrations\201904251047584_Initial.Designer.cs">
       <DependentUpon>201904251047584_Initial.cs</DependentUpon>
@@ -240,6 +242,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
+    <Compile Include="Models\CheckBoxListItem.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -334,6 +337,7 @@
     <Content Include="Views\Bookings\BookingForm.cshtml" />
     <Content Include="Views\Accommodations\Search.cshtml" />
     <Content Include="Views\Accommodations\Carousel.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

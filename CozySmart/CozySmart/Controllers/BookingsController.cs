@@ -29,6 +29,7 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize]
         public ActionResult AutoBooking(int id)
         {
             var dates = Session["Dates"] as DatesViewModel;

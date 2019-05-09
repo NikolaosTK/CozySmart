@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CozySmart.Managers;
 using CozySmart.Models;
 using CozySmart.ViewModels;
 
@@ -47,8 +48,17 @@ namespace CozySmart.Controllers
                                 .Where(a => a.Location == searchModel.SearchLocation).ToList();
             }
 
+            if (searchModel.SearchOccupancy != null)
+            {
+                searchResults = searchResults
+                                .Where(a => a.Occupancy >= searchModel.SearchOccupancy).ToList();
+            }
+
             if (searchModel.SearchArrival != null && searchModel.SearchDeparture != null)
             {
+
+                //Implement availability
+
                 foreach (var accommodation in searchResults.ToList())
                 {
                     var accommodationBookings = searchModel.Bookings.Where(b => b.AccommodationId == accommodation.Id);
@@ -58,16 +68,13 @@ namespace CozySmart.Controllers
                         if (searchModel.SearchArrival <= booking.Departure && searchModel.SearchDeparture >= booking.Arrival)
                         {
                             searchResults.Remove(accommodation);
+                            break;
                         }
                     }
                 }
             }
 
-            if (searchModel.SearchOccupancy != null)
-            {
-                searchResults = searchResults
-                                .Where(a => a.Occupancy >= searchModel.SearchOccupancy).ToList();
-            }
+            
 
             Session["Dates"] = new DatesViewModel { SearchArrival = searchModel.SearchArrival,
                                                     SearchDeparture = searchModel.SearchDeparture };
@@ -84,61 +91,58 @@ namespace CozySmart.Controllers
             return View(accommodations.ToList());
         }
 
+        [HttpGet]
         public ActionResult New()
         {
-            var viewModel = new AccommodationFormViewModel
+            var viewModel = new AccommodationFormViewModel();
+
+            var allAmenities = _db.Amenities.OrderBy(a => a.Description).ToList();
+            var checkBoxListItems = new List<CheckBoxListItem>();
+
+            foreach (var amenity in allAmenities)
             {
-                Accommodation = new Accommodation(),
-                Categories = _db.Categories.ToList(),
-                Amenities = _db.Amenities.Select(a => new AmenityViewModel {
-                    Id = a.Id,
-                    Description = a.Description
-                }).ToList()
-            };
+                checkBoxListItems.Add(new CheckBoxListItem()
+                {
+                    Id = amenity.Id,
+                    Display = amenity.Description,
+                    IsChecked = false
+                });
+            }
+
+            viewModel.Amenities = checkBoxListItems;
+            viewModel.Categories = _db.Categories.ToList();
+            
 
             return View("AccommodationForm", viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Accommodation accommodation)
+        public ActionResult Save(AccommodationFormViewModel accommodationModel)
         {
             if (!ModelState.IsValid)
             {
                 var viewModel = new AccommodationFormViewModel
                 {
-                    Accommodation = accommodation,
-                    Categories = _db.Categories.ToList(),
-                    
+                    Categories = _db.Categories.ToList()
                 };
 
                 return View("AccommodationForm", viewModel);
             }
 
-            if(accommodation.Id == 0)
+            if(accommodationModel.Id == 0)
             {
-                _db.Accommodations.Add(accommodation);
-            }                
+                AccommodationManager.Add(accommodationModel);
+            }
             else
             {
-                var savingAccommodation = _db.Accommodations.Single(a => a.Id == accommodation.Id);
-                savingAccommodation.Title = accommodation.Title;
-                savingAccommodation.Location = accommodation.Location;
-                savingAccommodation.Adress = accommodation.Adress;
-                savingAccommodation.Thumbnail = accommodation.Thumbnail;
-                savingAccommodation.Bedrooms = accommodation.Bedrooms;
-                savingAccommodation.Baths = accommodation.Baths;
-                savingAccommodation.Description = accommodation.Description;
-                savingAccommodation.Price = accommodation.Price;
-                savingAccommodation.CategoryId = accommodation.CategoryId;
-
-            }
-
-            _db.SaveChanges();
+                AccommodationManager.Update(accommodationModel);
+            }            
 
             return RedirectToAction("Index", "Accommodations");
         }
 
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             var accommodation = _db.Accommodations.SingleOrDefault(a => a.Id == id);
@@ -146,12 +150,28 @@ namespace CozySmart.Controllers
             if (accommodation == null)
                 return HttpNotFound();
 
-            var viewModel = new AccommodationFormViewModel
+            var viewModel = new AccommodationFormViewModel(accommodation);
+
+            var allAmenities = _db.Amenities.OrderBy(a => a.Description).ToList();
+
+            var accommodationAmenities = _db.Accommodations
+                                            .Where(a => a.Id == id).Single()
+                                            .Amenities.ToList();
+
+            var checkBoxListItems = new List<CheckBoxListItem>();
+
+            foreach (var amenity in allAmenities)
             {
-                Accommodation = accommodation,
-                Categories = _db.Categories.ToList(),
-                
-            };
+                checkBoxListItems.Add(new CheckBoxListItem()
+                {
+                    Id = amenity.Id,
+                    Display = amenity.Description,
+                    IsChecked = accommodationAmenities.Where(a => a.Id == amenity.Id).Any()
+                });
+            }
+
+            viewModel.Amenities = checkBoxListItems;
+            viewModel.Categories = _db.Categories.ToList();
 
             return View("AccommodationForm", viewModel);
         }
@@ -167,6 +187,7 @@ namespace CozySmart.Controllers
             var viewModel = new DetailsViewModel
             {
                 Accommodation = _db.Accommodations.Find(id),
+                Amenities = AmenitiesManager.GetForAccommodation(id),
                 Images = _db.Images.Where(i => i.AccommodationId == id)
 
             };
@@ -175,6 +196,7 @@ namespace CozySmart.Controllers
             {
                 return HttpNotFound();
             }
+
             return View("Details", viewModel);
         }
     }
