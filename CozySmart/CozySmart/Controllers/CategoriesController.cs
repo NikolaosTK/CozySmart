@@ -10,6 +10,8 @@ using CozySmart.Models;
 
 namespace CozySmart.Controllers
 {
+
+    [Authorize]
     public class CategoriesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();

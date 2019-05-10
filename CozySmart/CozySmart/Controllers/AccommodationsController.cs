@@ -31,8 +31,11 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
-        
+
         //GET: Accommodations/Search/?location=XXXX&searchArrival=XXX&searchDeparture=XXX&occupancy=XXXX
+
+
+        [AllowAnonymous]
         public ActionResult Search(SearchFormViewModel searchModel)
         {
             searchModel.Accommodations = _db.Accommodations.ToList();
@@ -85,12 +88,15 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations
+        [Authorize]
         public ActionResult Index()
         {
             var accommodations = _db.Accommodations.Include(a => a.Category);
             return View(accommodations.ToList());
         }
 
+
+        [Authorize]
         [HttpGet]
         public ActionResult New()
         {
@@ -116,6 +122,8 @@ namespace CozySmart.Controllers
             return View("AccommodationForm", viewModel);
         }
 
+
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(AccommodationFormViewModel accommodationModel)
@@ -142,6 +150,8 @@ namespace CozySmart.Controllers
             return RedirectToAction("Index", "Accommodations");
         }
 
+
+        [Authorize]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -175,8 +185,9 @@ namespace CozySmart.Controllers
 
             return View("AccommodationForm", viewModel);
         }
-        
+
         // GET: Accommodations/Details/id
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)

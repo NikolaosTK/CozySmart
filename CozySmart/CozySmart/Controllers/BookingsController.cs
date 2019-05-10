@@ -11,6 +11,7 @@ using CozySmart.ViewModels;
 
 namespace CozySmart.Controllers
 {
+    [Authorize]
     public class BookingsController : Controller
     {
         private CozySmartContext _db;
@@ -29,7 +30,7 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
-        [Authorize]
+        
         public ActionResult AutoBooking(int id)
         {
             var dates = Session["Dates"] as DatesViewModel;
@@ -48,12 +49,15 @@ namespace CozySmart.Controllers
         }
 
         // GET: Bookings
+       
         public ActionResult Index()
         {
             var bookings = _db.Bookings.Include(b => b.Accommodation);
             return View(bookings.ToList());
         }
 
+
+        
         public ActionResult New()
         {
             var viewModel = new BookingFormViewModel

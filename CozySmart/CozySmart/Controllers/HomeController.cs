@@ -11,13 +11,15 @@ namespace CozySmart.Controllers
 
 
 
-        
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
+
+        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
