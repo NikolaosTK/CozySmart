@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccommodationsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AmenitiesController.cs" />
+    <Compile Include="Controllers\AvailabilityController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -240,9 +241,26 @@
     <Compile Include="Migrations\201905051235391_RemovedOccupancyFromBooking.Designer.cs">
       <DependentUpon>201905051235391_RemovedOccupancyFromBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905091401412_Availability.cs" />
+    <Compile Include="Migrations\201905091401412_Availability.Designer.cs">
+      <DependentUpon>201905091401412_Availability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091409342_Available.cs" />
+    <Compile Include="Migrations\201905091409342_Available.Designer.cs">
+      <DependentUpon>201905091409342_Available.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091709020_ad.cs" />
+    <Compile Include="Migrations\201905091709020_ad.Designer.cs">
+      <DependentUpon>201905091709020_ad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091714468_av.cs" />
+    <Compile Include="Migrations\201905091714468_av.Designer.cs">
+      <DependentUpon>201905091714468_av.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
+    <Compile Include="Models\Availability.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -251,6 +269,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="ViewModels\BookingViewModels.cs" />
+    <Compile Include="ViewModels\AvailabilityForm.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -338,6 +357,8 @@
     <Content Include="Views\Accommodations\Search.cshtml" />
     <Content Include="Views\Accommodations\Carousel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Availability\Index.cshtml" />
+    <Content Include="Views\Availability\AvailabilityEdit.cshtml" />
     <Content Include="Views\Accommodations\Amenities.cshtml" />
     <Content Include="Views\Accommodations\Description.cshtml" />
   </ItemGroup>
@@ -403,6 +424,18 @@
     <EmbeddedResource Include="Migrations\201905051235391_RemovedOccupancyFromBooking.resx">
       <DependentUpon>201905051235391_RemovedOccupancyFromBooking.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091401412_Availability.resx">
+      <DependentUpon>201905091401412_Availability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091409342_Available.resx">
+      <DependentUpon>201905091409342_Available.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091709020_ad.resx">
+      <DependentUpon>201905091709020_ad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091714468_av.resx">
+      <DependentUpon>201905091714468_av.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -451,4 +484,11 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
 </Project>
