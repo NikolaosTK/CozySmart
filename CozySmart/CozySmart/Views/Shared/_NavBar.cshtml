@@ -10,13 +10,18 @@
             @Html.ActionLink("Cozy:Smart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">                
+            <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("About Us", "About", "Home")</li>
                 <li>@Html.ActionLink("Accommodations", "Index", "Accommodations")</li>
                 <li>@Html.ActionLink("Bookings", "Index", "Bookings")</li>
                 <li>@Html.ActionLink("Amenities", "Index", "Amenities")</li>
                 <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                 <li>@Html.ActionLink("Images", "Index", "Images")</li>
+                <li>@Html.ActionLink("Availability", "Index", "Availability")</li>
+
+
+
+
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

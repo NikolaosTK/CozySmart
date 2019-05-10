@@ -25,6 +25,9 @@ namespace CozySmart.Models
         /// </summary>
         public IDbSet<Booking> Bookings { get; set; }
 
+
+        public IDbSet<Availability> Availabilities { get; set; }
+
         /// <summary>
         /// Collection managing the accommodations
         /// </summary>
