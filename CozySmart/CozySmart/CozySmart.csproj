@@ -338,6 +338,8 @@
     <Content Include="Views\Accommodations\Search.cshtml" />
     <Content Include="Views\Accommodations\Carousel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Accommodations\Amenities.cshtml" />
+    <Content Include="Views\Accommodations\Description.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

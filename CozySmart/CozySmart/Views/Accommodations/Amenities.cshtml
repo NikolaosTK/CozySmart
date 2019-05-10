@@ -1,0 +1,16 @@
+﻿@model CozySmart.ViewModels.DetailsViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <p>Amenities</p>
+    </div>
+
+    <div class="panel-body">
+        @for (int i = 0; i < Model.Amenities.Count(); i++)
+        {
+            <div class="text-center amenity">
+                <strong>@Html.DisplayFor(m => m.Amenities[i].Description)</strong>
+            </div>
+        }
+    </div>
+</div>

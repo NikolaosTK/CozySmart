@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="panel panel-default">
+            <div class="panel panel-success">
                 <div class="panel-heading text-center">
                     <p>Further Details</p>
                 </div>
@@ -90,7 +90,7 @@
         <div class="col-md-9">
             @if (Model.Images.Count() == 0)
             {
-                <img src="@Model.Accommodation.Thumbnail" alt="Thumbnail" style="width: 100%" class="center-block" />
+                <img src="@Model.Accommodation.Thumbnail" alt="Thumbnail" class="center-block detail-img" />
             }
             else
             {
@@ -99,21 +99,16 @@
         </div>
     </div>
 
-    <dl>
-        <dt>
-            @Html.DisplayNameFor(model => model.Accommodation.Description)
-        </dt>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-7">
+            @Html.Partial("Description")
+        </div>
 
-        <dd>
-            @for (int i = 0; i < Model.Amenities.Count(); i++)
-            {
-                @Html.DisplayFor(m => m.Amenities[i].Description)
-            }
-
-            @Html.DisplayFor(model => model.Accommodation.Description)
-        </dd>
-
-    </dl>
+        <div class="col-md-2">
+            @Html.Partial("Amenities")
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")
