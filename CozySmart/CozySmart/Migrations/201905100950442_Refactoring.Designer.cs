@@ -7,13 +7,13 @@ namespace CozySmart.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class av : IMigrationMetadata
+    public sealed partial class Refactoring : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(av));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Refactoring));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905091714468_av"; }
+            get { return "201905100950442_Refactoring"; }
         }
         
         string IMigrationMetadata.Source

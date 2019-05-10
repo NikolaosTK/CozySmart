@@ -241,21 +241,13 @@
     <Compile Include="Migrations\201905051235391_RemovedOccupancyFromBooking.Designer.cs">
       <DependentUpon>201905051235391_RemovedOccupancyFromBooking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905091401412_Availability.cs" />
-    <Compile Include="Migrations\201905091401412_Availability.Designer.cs">
-      <DependentUpon>201905091401412_Availability.cs</DependentUpon>
+    <Compile Include="Migrations\201905091409342_Availability.cs" />
+    <Compile Include="Migrations\201905091409342_Availability.Designer.cs">
+      <DependentUpon>201905091409342_Availability.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905091409342_Available.cs" />
-    <Compile Include="Migrations\201905091409342_Available.Designer.cs">
-      <DependentUpon>201905091409342_Available.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905091709020_ad.cs" />
-    <Compile Include="Migrations\201905091709020_ad.Designer.cs">
-      <DependentUpon>201905091709020_ad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905091714468_av.cs" />
-    <Compile Include="Migrations\201905091714468_av.Designer.cs">
-      <DependentUpon>201905091714468_av.cs</DependentUpon>
+    <Compile Include="Migrations\201905100950442_Refactoring.cs" />
+    <Compile Include="Migrations\201905100950442_Refactoring.Designer.cs">
+      <DependentUpon>201905100950442_Refactoring.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
@@ -424,17 +416,11 @@
     <EmbeddedResource Include="Migrations\201905051235391_RemovedOccupancyFromBooking.resx">
       <DependentUpon>201905051235391_RemovedOccupancyFromBooking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091401412_Availability.resx">
-      <DependentUpon>201905091401412_Availability.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905091409342_Availability.resx">
+      <DependentUpon>201905091409342_Availability.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091409342_Available.resx">
-      <DependentUpon>201905091409342_Available.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091709020_ad.resx">
-      <DependentUpon>201905091709020_ad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905091714468_av.resx">
-      <DependentUpon>201905091714468_av.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905100950442_Refactoring.resx">
+      <DependentUpon>201905100950442_Refactoring.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

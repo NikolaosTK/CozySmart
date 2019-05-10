@@ -3,16 +3,9 @@ namespace CozySmart.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ad : DbMigration
+    public partial class Refactoring : DbMigration
     {
         public override void Up()
-        {
-            DropForeignKey("dbo.Availabilities", "AccommodationId", "dbo.Accommodations");
-            DropIndex("dbo.Availabilities", new[] { "AccommodationId" });
-            DropTable("dbo.Availabilities");
-        }
-        
-        public override void Down()
         {
             CreateTable(
                 "dbo.Availabilities",
@@ -23,10 +16,17 @@ namespace CozySmart.Migrations
                         AvailabilityEnd = c.DateTime(nullable: false),
                         AccommodationId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Accommodations", t => t.AccommodationId, cascadeDelete: true)
+                .Index(t => t.AccommodationId);
             
-            CreateIndex("dbo.Availabilities", "AccommodationId");
-            AddForeignKey("dbo.Availabilities", "AccommodationId", "dbo.Accommodations", "Id", cascadeDelete: true);
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.Availabilities", "AccommodationId", "dbo.Accommodations");
+            DropIndex("dbo.Availabilities", new[] { "AccommodationId" });
+            DropTable("dbo.Availabilities");
         }
     }
 }
