@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201905100950442_Refactoring.Designer.cs">
       <DependentUpon>201905100950442_Refactoring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905110849402_UpdatedAvailability.cs" />
+    <Compile Include="Migrations\201905110849402_UpdatedAvailability.Designer.cs">
+      <DependentUpon>201905110849402_UpdatedAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
@@ -422,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905100950442_Refactoring.resx">
       <DependentUpon>201905100950442_Refactoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905110849402_UpdatedAvailability.resx">
+      <DependentUpon>201905110849402_UpdatedAvailability.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
