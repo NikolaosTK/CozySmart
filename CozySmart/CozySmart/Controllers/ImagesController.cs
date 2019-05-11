@@ -10,6 +10,8 @@ using CozySmart.Models;
 
 namespace CozySmart.Controllers
 {
+
+    [Authorize]
     public class ImagesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();

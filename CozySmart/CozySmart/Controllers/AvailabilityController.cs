@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 namespace CozySmart.Controllers
 {
+
+    [Authorize]
     public class AvailabilityController : Controller
     {
         private CozySmartContext _db;
