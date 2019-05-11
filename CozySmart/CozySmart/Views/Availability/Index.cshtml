@@ -1,48 +1,42 @@
-﻿@model CozySmart.ViewModels.AvailabilityForm
+﻿@model IEnumerable<CozySmart.Models.Availability>
+
+<h2>Availability Index</h2>
+
+<p>
+    @Html.ActionLink("Add Availability", "New")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.AccommodationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.AvailabilityStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.AvailabilityEnd)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccommodationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailabilityStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailabilityEnd)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
 
 
-<h2>Search Form</h2>
 
-@using (Html.BeginForm("AvailabilityEdit", "Availability", FormMethod.Get, new { @class = "multi-data/form-control" }))
-{
-<div class="form-horizontal">
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.SearchArrival, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-
-            @Html.EditorFor(m => m.SearchArrival, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.SearchArrival)
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.SearchDeparture, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.SearchDeparture, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.SearchDeparture)
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.AccommodationId, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(m => m.AccommodationId, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.AccommodationId)
-        </div>
-    </div>
-
-
-
-
-    <div class="form-group">
-        <div class="col-md-offset-3 col-md-7">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </div>
-
-</div>
-}

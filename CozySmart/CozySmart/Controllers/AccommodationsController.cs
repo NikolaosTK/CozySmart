@@ -199,5 +199,14 @@ namespace CozySmart.Controllers
 
             return View("Details", viewModel);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var accommodation = _db.Accommodations.Find(id);
+            _db.Accommodations.Remove(accommodation);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Accommodations");
+        }
     }
 }

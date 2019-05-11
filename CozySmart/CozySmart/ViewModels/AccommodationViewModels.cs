@@ -84,7 +84,23 @@ namespace CozySmart.ViewModels
         }
     }
 
-   
+    public class AvailabilityFormViewModel
+    {
+        [Required]
+        [Display(Name = "Arrival")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime OccupationStart { get; set; }
+
+        [Required]
+        [Display(Name = "Departure")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime OccupationEnd { get; set; }
+
+
+        public int AccommodationId { get; set; }
+    }
 
     public class DetailsViewModel
     {

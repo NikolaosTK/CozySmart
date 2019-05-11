@@ -181,6 +181,7 @@
     </Compile>
     <Compile Include="Managers\AccommodationManager.cs" />
     <Compile Include="Managers\AmenitiesManager.cs" />
+    <Compile Include="Managers\AvailabilityManager.cs" />
     <Compile Include="Migrations\201904251047584_Initial.cs" />
     <Compile Include="Migrations\201904251047584_Initial.Designer.cs">
       <DependentUpon>201904251047584_Initial.cs</DependentUpon>
@@ -253,6 +254,7 @@
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
     <Compile Include="Models\Availability.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -261,7 +263,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="ViewModels\BookingViewModels.cs" />
-    <Compile Include="ViewModels\AvailabilityForm.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,9 +351,9 @@
     <Content Include="Views\Accommodations\Carousel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Availability\Index.cshtml" />
-    <Content Include="Views\Availability\AvailabilityEdit.cshtml" />
     <Content Include="Views\Accommodations\Amenities.cshtml" />
     <Content Include="Views\Accommodations\Description.cshtml" />
+    <Content Include="Views\Availability\AvailabilityForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

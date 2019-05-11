@@ -29,6 +29,17 @@ namespace CozySmart.Models
         [Display(Name = "Accommodation")]
         public int AccommodationId { get; set; }
 
+        public Availability()
+        {
+        }
+
+        public Availability(int id)
+        {
+            AvailabilityStart = DateTime.Today.Date;
+            AvailabilityEnd = DateTime.Today.AddYears(5);
+            AccommodationId = id;            
+        }
+
 
     }
 }

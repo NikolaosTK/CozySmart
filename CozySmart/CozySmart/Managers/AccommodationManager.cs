@@ -13,6 +13,7 @@ namespace CozySmart.Managers
         {
             using (CozySmartContext _db = new CozySmartContext())
             {
+                var defaultAvailability = new Availability(accommodationModel.Id);
                 var selectedAmenities = accommodationModel.Amenities.Where(a => a.IsChecked).Select(a => a.Id).ToList();
 
                 var accommodation = new Accommodation()
@@ -29,6 +30,8 @@ namespace CozySmart.Managers
                     Price = accommodationModel.Price,
                     CategoryId = accommodationModel.CategoryId
                 };
+
+                accommodation.Availabilities.Add(defaultAvailability);
 
                 foreach (var amenityId in selectedAmenities)
                 {

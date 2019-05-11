@@ -24,9 +24,7 @@ namespace CozySmart.Models
         /// Collection managing the bookings of the tenants
         /// </summary>
         public IDbSet<Booking> Bookings { get; set; }
-
-
-        public IDbSet<Availability> Availabilities { get; set; }
+        
 
         /// <summary>
         /// Collection managing the accommodations
@@ -42,12 +40,21 @@ namespace CozySmart.Models
         /// Collection of accommodation types
         /// </summary>
         public IDbSet<Category> Categories { get; set; }
-        
+
+        /// <summary>
+        /// Collection of all available locations
+        /// </summary>
+        public IDbSet<Location> Locations { get; set; }
+
+        /// <summary>
+        /// Collection of every availability period of the accommodations
+        /// </summary>
+        public IDbSet<Availability> Availabilities { get; set; }
 
         /// <summary>
         /// Collection managing the images of the accommodations
         /// </summary>
-        public DbSet<Image> Images { get; set; }
+        public IDbSet<Image> Images { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

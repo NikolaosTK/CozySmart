@@ -11,6 +11,7 @@ namespace CozySmart.Models
         public Accommodation()
         {
             this.Amenities = new HashSet<Amenity>();
+            this.Availabilities = new List<Availability>();
         }
 
 
@@ -59,6 +60,8 @@ namespace CozySmart.Models
         public int CategoryId { get; set; }
 
 
+
+        public ICollection<Availability> Availabilities { get; set; }
 
         public ICollection<Image> Images { get; set; }
 
