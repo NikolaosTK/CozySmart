@@ -176,6 +176,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -358,6 +359,7 @@
     <Content Include="Views\Accommodations\Amenities.cshtml" />
     <Content Include="Views\Accommodations\Description.cshtml" />
     <Content Include="Views\Availability\AvailabilityForm.cshtml" />
+    <Content Include="Views\Roles\AddHostRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
