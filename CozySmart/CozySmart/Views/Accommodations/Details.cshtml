@@ -13,9 +13,9 @@
 
         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#bookingModal">Book</button>
 
-        <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Edit</a>
-        <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Occupation</a>
-        <a href="~/Images/New/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Image</a>
+        <a href="~/Accommodations/Edit/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Edit</a>
+        <a href="~/Accommodations/Edit/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Occupation</a>
+        <a href="~/Images/New/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Image</a>
     </h4>
 
 
@@ -136,7 +136,7 @@
                 <p>Some text in the modal.</p>
             </div>
             <div class="modal-footer">
-                <a href="~/Bookings/AutoBooking/@Model.Accommodation.Id" class=" = btn btn-primary pull-right" role="button">Confirm</a>
+                <a href="~/Bookings/AutoBooking/@Model.Id" class=" = btn btn-primary pull-right" role="button">Confirm</a>
                 <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
             </div>
         </div>

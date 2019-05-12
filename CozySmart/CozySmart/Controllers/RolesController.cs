@@ -30,7 +30,7 @@ namespace CozySmart.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Tenant")]
+       // [Authorize(Roles = "Tenant")]
         public ActionResult AddHostRole()
         {
 

@@ -91,13 +91,13 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations
-        /*
+        
         [Authorize(Roles = "Host")]
         public ActionResult Index()
         {
             var accommodations = _db.Accommodations.Include(a => a.Category);
             return View(accommodations.ToList());
-        } */
+        } 
 
 
         [Authorize(Roles = "Host")]
@@ -191,7 +191,7 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations/Details/id
-        [Authorize(Roles = "Host")]
+        [Authorize(Roles = "Host,Tenant")]
         public ActionResult Details(int? id)
         {
             if (id == null)
