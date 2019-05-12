@@ -4,17 +4,17 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Accommodation.Title</h2>
+<h2>@Model.Title</h2>
 
 <div>
     <h4>
         <span class="glyphicon glyphicon-map-marker"></span>
-        <span>@Model.Accommodation.Adress, @Model.Accommodation.Location</span>
+        <span>@Model.Adress, @Model.Location</span>
 
-        <a href="~/Bookings/AutoBooking/@Model.Accommodation.Id" class=" = btn btn-primary pull-right btn-details" role="button">Book</a>
-        <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Edit</a>
-        <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Occupation</a>
-        <a href="~/Images/New/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Image</a>
+        <a href="~/Bookings/AutoBooking/@Model.Id" class=" = btn btn-primary pull-right btn-details" role="button">Book</a>
+        <a href="~/Accommodations/Edit/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Edit</a>
+        <a href="~/Accommodations/Edit/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Occupation</a>
+        <a href="~/Images/New/@Model.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Image</a>
     </h4>
 
     <hr />
@@ -29,10 +29,10 @@
                 <div class="panel-body">
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(m => m.Accommodation.CategoryId)
+                            @Html.DisplayNameFor(m => m.CategoryId)
                         </dt>
                         <dd>
-                            @Html.DisplayFor(m => m.Accommodation.CategoryId)
+                            @Html.DisplayFor(m => m.CategoryId)
                         </dd>
                     </dl>
 
@@ -40,11 +40,11 @@
 
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(m => m.Accommodation.Occupancy)
+                            @Html.DisplayNameFor(m => m.Occupancy)
                         </dt>
                         <dd>
                             <span>A maximum of </span>
-                            @Html.DisplayFor(m => m.Accommodation.Occupancy)
+                            @Html.DisplayFor(m => m.Occupancy)
                             <span> Visitors</span>
                         </dd>
                     </dl>
@@ -53,11 +53,11 @@
 
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(model => model.Accommodation.Bedrooms)
+                            @Html.DisplayNameFor(model => model.Bedrooms)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Accommodation.Bedrooms)
+                            @Html.DisplayFor(model => model.Bedrooms)
                         </dd>
                     </dl>
 
@@ -65,11 +65,11 @@
 
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(model => model.Accommodation.Baths)
+                            @Html.DisplayNameFor(model => model.Baths)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Accommodation.Baths)
+                            @Html.DisplayFor(model => model.Baths)
                         </dd>
                     </dl>
 
@@ -77,11 +77,11 @@
 
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(model => model.Accommodation.Price)
+                            @Html.DisplayNameFor(model => model.Price)
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Accommodation.Price)
+                            @Html.DisplayFor(model => model.Price)
                             <span class="glyphicon glyphicon-euro"></span>
                         </dd>
                     </dl>
@@ -93,7 +93,7 @@
         <div class="col-md-9">
             @if (Model.Images.Count() == 0)
             {
-                <img src="@Model.Accommodation.Thumbnail" alt="Thumbnail" class="center-block detail-img" />
+                <img src="@Model.Thumbnail" alt="Thumbnail" class="center-block detail-img" />
             }
             else
             {
@@ -103,7 +103,9 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            @Html.Partial("Availabilities")
+        </div>
         <div class="col-md-7">
             @Html.Partial("Description")
         </div>

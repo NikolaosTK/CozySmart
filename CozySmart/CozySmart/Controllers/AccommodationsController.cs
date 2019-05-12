@@ -199,15 +199,16 @@ namespace CozySmart.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var viewModel = new DetailsViewModel
-            {
-                Accommodation = _db.Accommodations.Find(id),
-                Amenities = AmenitiesManager.GetForAccommodation(id),
-                Images = _db.Images.Where(i => i.AccommodationId == id)
+            var currentAccommodation = _db.Accommodations.Find(id);
 
+            var viewModel = new DetailsViewModel(currentAccommodation)
+            {
+                Amenities = AmenitiesManager.GetForAccommodation(id),
+                Availabilities = AvailabilityManager.GetForAccommodation(id),
+                Images = _db.Images.Where(i => i.AccommodationId == id)
             };
             
-            if (viewModel.Accommodation == null)
+            if (viewModel == null)
             {
                 return HttpNotFound();
             }

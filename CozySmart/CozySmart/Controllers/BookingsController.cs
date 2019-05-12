@@ -45,7 +45,7 @@ namespace CozySmart.Controllers
             _db.Bookings.Add(newBooking);
             _db.SaveChanges();
 
-            return RedirectToAction("Index", "Bookings");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Bookings
