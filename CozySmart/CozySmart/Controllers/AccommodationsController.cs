@@ -91,15 +91,16 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations
-        [Authorize]
+        /*
+        [Authorize(Roles = "Host")]
         public ActionResult Index()
         {
             var accommodations = _db.Accommodations.Include(a => a.Category);
             return View(accommodations.ToList());
-        }
+        } */
 
 
-        [Authorize]
+        [Authorize(Roles = "Host")]
         [HttpGet]
         public ActionResult New()
         {
@@ -126,7 +127,7 @@ namespace CozySmart.Controllers
         }
 
 
-        [Authorize]
+        [Authorize(Roles = "Host")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(AccommodationFormViewModel accommodationModel)
@@ -154,7 +155,7 @@ namespace CozySmart.Controllers
         }
 
 
-        [Authorize]
+        [Authorize(Roles = "Host")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -190,7 +191,7 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations/Details/id
-        [Authorize]
+        [Authorize(Roles = "Host")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -198,15 +199,16 @@ namespace CozySmart.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var viewModel = new DetailsViewModel
-            {
-                Accommodation = _db.Accommodations.Find(id),
-                Amenities = AmenitiesManager.GetForAccommodation(id),
-                Images = _db.Images.Where(i => i.AccommodationId == id)
+            var currentAccommodation = _db.Accommodations.Find(id);
 
+            var viewModel = new DetailsViewModel(currentAccommodation)
+            {
+                Amenities = AmenitiesManager.GetForAccommodation(id),
+                Availabilities = AvailabilityManager.GetForAccommodation(id),
+                Images = _db.Images.Where(i => i.AccommodationId == id)
             };
             
-            if (viewModel.Accommodation == null)
+            if (viewModel == null)
             {
                 return HttpNotFound();
             }
@@ -214,6 +216,8 @@ namespace CozySmart.Controllers
             return View("Details", viewModel);
         }
 
+
+        
         public ActionResult Delete(int id)
         {
             var accommodation = _db.Accommodations.Find(id);

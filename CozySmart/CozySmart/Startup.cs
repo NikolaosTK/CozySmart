@@ -43,8 +43,8 @@ namespace CozySmart
             {
 
 
-                /*
-              
+                
+              /*
 
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();   
@@ -54,15 +54,17 @@ namespace CozySmart
                 //Here we create a Admin super user who will maintain the website                  
    
                 var user = new ApplicationUser();   
-                user.UserName = "shanu";   
-                user.Email = "syedshanumcain@gmail.com";   
+                user.FirstName = "Admin";
+
+                user.LastName = "Admin";
+                user.Email = "Admin@gmail.com";   
    
-                string userPWD = "A@Z200711";   
+                string userPWD = "Vasilis1992!";   
    
                 var chkUser = UserManager.Create(user, userPWD); 
 
-                  */
-
+                  
+                */
 
             }
 

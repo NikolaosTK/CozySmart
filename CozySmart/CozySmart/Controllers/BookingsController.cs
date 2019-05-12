@@ -30,7 +30,7 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
-        
+        [Authorize(Roles = "Tenant")]
         public ActionResult AutoBooking(int id)
         {
             var dates = Session["Dates"] as DatesViewModel;
@@ -50,6 +50,8 @@ namespace CozySmart.Controllers
 
         // GET: Bookings
        
+
+        
         public ActionResult Index()
         {
             var bookings = _db.Bookings.Include(b => b.Accommodation);
@@ -57,7 +59,30 @@ namespace CozySmart.Controllers
         }
 
 
-        
+        [Authorize(Roles = "Host")]
+        public ActionResult BookingsAccommodation()
+        {
+
+
+          return View();
+        }
+
+
+        [Authorize(Roles = "Tenant")]
+        public ActionResult BookingsTenant()
+        {
+
+
+
+
+            return View();
+        }
+
+
+
+
+
+
         public ActionResult New()
         {
             var viewModel = new BookingFormViewModel

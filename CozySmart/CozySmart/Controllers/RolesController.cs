@@ -30,7 +30,7 @@ namespace CozySmart.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Tenant")]
         public ActionResult AddHostRole()
         {
 
@@ -40,27 +40,23 @@ namespace CozySmart.Controllers
             var userManager = new UserManager<ApplicationUser>(userStore);
 
 
-            var s = userManager.GetRoles(User.Identity.GetUserId());
+            var roles = userManager.GetRoles(User.Identity.GetUserId());
 
-            foreach (var role in s)
+
+            if (roles.Contains("Host"))
             {
-                if (role.ToString() == "Host")
-                {
-                    ViewBag.message = " You have already been a host ";
-                    break;
-                }
+                ViewBag.message = " You have already been a host ";
 
-                else
-                {
+            }
 
-                    userManager.AddToRole(User.Identity.GetUserId(), "Host");
+            else
+            {
 
-                    ViewBag.message = "You are also Host";
-                }
+                userManager.AddToRole(User.Identity.GetUserId(), "Host");
 
-               
-            }  
-             
+                ViewBag.message = "You are also Host";
+            }
+
 
             return View();
 
@@ -68,4 +64,7 @@ namespace CozySmart.Controllers
 
 
     }
+
+
+    
 }

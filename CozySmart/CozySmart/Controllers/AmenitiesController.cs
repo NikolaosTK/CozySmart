@@ -10,7 +10,7 @@ using CozySmart.Models;
 
 namespace CozySmart.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AmenitiesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
