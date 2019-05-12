@@ -62,7 +62,7 @@ namespace CozySmart.Controllers
                 if (availabilityModel.OccupationStart > availability.AvailabilityStart && availabilityModel.OccupationEnd < availability.AvailabilityEnd)
                 {
                     AvailabilityManager.AvailabilityDivision(availabilityModel, availability);
-
+                  
                     break;
                 }
                 else
