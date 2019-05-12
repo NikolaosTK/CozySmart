@@ -1,1 +1,18 @@
-﻿
+﻿@model CozySmart.ViewModels.DetailsViewModel
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <p>Available Periods</p>
+    </div>
+
+    <div class="panel-body">
+        @for (int i = 0; i < Model.Availabilities.Count(); i++)
+        {
+            <div class="text-center amenity">
+                <strong>@Html.DisplayFor(m => m.Availabilities[i].AvailabilityStart)</strong>
+            </div>
+            
+            <hr/>
+        }
+    </div>
+</div>

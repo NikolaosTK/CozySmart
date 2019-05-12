@@ -27,13 +27,22 @@ namespace CozySmart.Managers
                     AccommodationId = availabilityModel.AccommodationId
                 };
 
-
+                var currentAccommodation = _db.Accommodations.Where(a => a.Id == availabilityModel.AccommodationId).Single();
                 var pastAvailability = _db.Availabilities.Find(availability.Id);
-                _db.Availabilities.Remove(pastAvailability);
 
-                _db.Availabilities.Add(firstPart);
-                _db.Availabilities.Add(secondPart);
+                currentAccommodation.Availabilities.Remove(pastAvailability);
+                currentAccommodation.Availabilities.Add(firstPart);
+                currentAccommodation.Availabilities.Add(secondPart);
+
                 _db.SaveChanges();
+            }
+        }
+
+        public static List<Availability> GetForAccommodation(int? id)
+        {
+            using (CozySmartContext _db = new CozySmartContext())
+            {
+                return _db.Accommodations.Where(a => a.Id == id).Single().Availabilities.ToList();
             }
 
         }

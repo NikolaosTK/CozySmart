@@ -49,10 +49,8 @@ namespace CozySmart.Controllers
                     ViewBag.message = " You have already been a host ";
                     break;
                 }
-
                 else
                 {
-
                     userManager.AddToRole(User.Identity.GetUserId(), "Host");
 
                     ViewBag.message = "You are also Host";

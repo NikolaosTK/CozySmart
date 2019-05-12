@@ -28,7 +28,7 @@ namespace CozySmart.Managers
         {
             using (CozySmartContext _db = new CozySmartContext())
             {
-                return _db.Accommodations.Where(a => a.Id == id).Single().Amenities.ToList();
+                return _db.Accommodations.Where(a => a.Id == id).Single().Amenities.OrderBy(am => am.Description).ToList();
             }
                 
         }
