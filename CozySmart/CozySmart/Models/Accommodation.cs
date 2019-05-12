@@ -12,6 +12,7 @@ namespace CozySmart.Models
         {
             this.Amenities = new HashSet<Amenity>();
             this.Availabilities = new List<Availability>();
+            this.Images = new List<Image>();
         }
 
 

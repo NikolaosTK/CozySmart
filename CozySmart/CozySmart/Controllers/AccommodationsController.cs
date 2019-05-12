@@ -79,8 +79,11 @@ namespace CozySmart.Controllers
 
             
 
-            Session["Dates"] = new DatesViewModel { SearchArrival = searchModel.SearchArrival,
-                                                    SearchDeparture = searchModel.SearchDeparture };
+            Session["Dates"] = new DatesViewModel
+            {
+                SearchArrival = searchModel.SearchArrival,
+                SearchDeparture = searchModel.SearchDeparture
+            };
 
 
 

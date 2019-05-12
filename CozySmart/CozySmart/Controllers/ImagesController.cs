@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CozySmart.Models;
+using CozySmart.ViewModels;
 
 namespace CozySmart.Controllers
 {
@@ -38,15 +39,35 @@ namespace CozySmart.Controllers
             return View(image);
         }
 
-        // GET: Images/Create
-        public ActionResult Create()
+        public ActionResult New(int id)
         {
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title");
-            return View();
+            var viewModel = new ImageViewModel();
+            viewModel.AccommodationId = id;
+
+            return View("New", viewModel);
         }
 
+        public ActionResult Add(ImageViewModel imageModel)
+        {
+            var accommodation = db.Accommodations.Find(imageModel.AccommodationId);
+
+            var newImage = new Image()
+            {
+                Id = imageModel.Id,
+                Title = imageModel.Title,
+                ImageUrl = imageModel.ImageUrl
+            };
+
+            accommodation.Images.Add(newImage);
+            db.SaveChanges();
+
+            return RedirectToAction("Details","Accommodations", new { id = imageModel.AccommodationId});
+        }
+
+        
+
         // POST: Images/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,38 +84,7 @@ namespace CozySmart.Controllers
             return View(image);
         }
 
-        // GET: Images/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Image image = db.Images.Find(id);
-            if (image == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", image.AccommodationId);
-            return View(image);
-        }
-
-        // POST: Images/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,ImageUrl,AccommodationId")] Image image)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(image).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.AccommodationId = new SelectList(db.Accommodations, "Id", "Title", image.AccommodationId);
-            return View(image);
-        }
+        
 
         // GET: Images/Delete/5
         public ActionResult Delete(int? id)

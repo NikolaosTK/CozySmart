@@ -345,10 +345,8 @@
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Accommodations\AccommodationForm.cshtml" />
-    <Content Include="Views\Images\Create.cshtml" />
+    <Content Include="Views\Images\New.cshtml" />
     <Content Include="Views\Images\Delete.cshtml" />
-    <Content Include="Views\Images\Details.cshtml" />
-    <Content Include="Views\Images\Edit.cshtml" />
     <Content Include="Views\Images\Index.cshtml" />
     <Content Include="Views\Bookings\BookingForm.cshtml" />
     <Content Include="Views\Accommodations\Search.cshtml" />
@@ -358,6 +356,7 @@
     <Content Include="Views\Accommodations\Amenities.cshtml" />
     <Content Include="Views\Accommodations\Description.cshtml" />
     <Content Include="Views\Availability\AvailabilityForm.cshtml" />
+    <Content Include="Views\Accommodations\Availabilities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

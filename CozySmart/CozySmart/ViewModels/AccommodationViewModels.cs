@@ -110,4 +110,15 @@ namespace CozySmart.ViewModels
 
         public List<Amenity> Amenities { get; set; }
     }
+
+    public class ImageViewModel
+    {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public int AccommodationId { get; set; }
+    }
 }

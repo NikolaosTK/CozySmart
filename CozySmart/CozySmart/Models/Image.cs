@@ -27,7 +27,7 @@ namespace CozySmart.Models
         
         [Required]
         [Display(Name = "Accommodation")]
-        public int AccommodationId { get; set; }
+        public int? AccommodationId { get; set; }
 
         
     }
