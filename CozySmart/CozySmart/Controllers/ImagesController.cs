@@ -12,7 +12,7 @@ using CozySmart.ViewModels;
 namespace CozySmart.Controllers
 {
 
-    [Authorize]
+    [Authorize(Roles = "Host")]
     public class ImagesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
