@@ -11,11 +11,14 @@
         <span class="glyphicon glyphicon-map-marker"></span>
         <span>@Model.Accommodation.Adress, @Model.Accommodation.Location</span>
 
-        <a href="~/Bookings/AutoBooking/@Model.Accommodation.Id" class=" = btn btn-primary pull-right btn-details" role="button">Book</a>
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#bookingModal">Book</button>
+
         <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Edit</a>
         <a href="~/Accommodations/Edit/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Occupation</a>
         <a href="~/Images/New/@Model.Accommodation.Id" class=" = btn btn-success pull-right btn-details" role="button">Add Image</a>
     </h4>
+
+
 
     <hr />
 
@@ -116,3 +119,25 @@
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="bookingModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Booking Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="~/Bookings/AutoBooking/@Model.Accommodation.Id" class=" = btn btn-primary pull-right" role="button">Confirm</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
