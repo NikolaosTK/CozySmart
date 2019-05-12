@@ -44,7 +44,7 @@ namespace CozySmart.Managers
         {
             using (CozySmartContext _db = new CozySmartContext())
             {
-                return _db.Accommodations.Include(a => a.Availabilities).Where(a => a.Id == id).Single().Availabilities.ToList();
+                return _db.Accommodations.Where(a => a.Id == id).Include(a => a.Availabilities).Single().Availabilities.ToList();
             }
 
         }

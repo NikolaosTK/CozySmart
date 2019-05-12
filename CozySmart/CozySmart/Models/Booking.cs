@@ -10,8 +10,6 @@ namespace CozySmart.Models
     {
         public int Id { get; set; }        
 
-        
-
         [Display(Name="Arrival Date")]
         [Required]
         [DataType(DataType.Date)]

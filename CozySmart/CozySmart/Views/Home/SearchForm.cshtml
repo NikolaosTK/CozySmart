@@ -1,50 +1,44 @@
 ﻿@model CozySmart.ViewModels.SearchFormViewModel
 
 
-<h2>Search Form</h2>
 
-@using (Html.BeginForm("Search", "Accommodations", FormMethod.Get, new { @class = "multi-data/form-control" }))
+
+@using (Html.BeginForm("Search", "Accommodations", FormMethod.Get, new { @class = "multi-data/form-control form-area" }))
 {
-    <div class="form-horizontal">
+    <h2>Search</h2>
+    <div class="form-group">
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.SearchLocation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.SearchLocation, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.SearchLocation)
-            </div>
-        </div>
+        @Html.LabelFor(m => m.SearchLocation)
+        @Html.TextBoxFor(m => m.SearchLocation, new { @class = "form-control", placeholder = "Enter the name of the City" })
+        @Html.ValidationMessageFor(m => m.SearchLocation)
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.SearchArrival, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+    </div>
 
-                @Html.EditorFor(m => m.SearchArrival, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.SearchArrival)
-            </div>
-        </div>
+    <div class="form-group">
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.SearchDeparture, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(m => m.SearchDeparture, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.SearchDeparture)
-            </div>
-        </div>
+        @Html.LabelFor(m => m.SearchArrival)
+        @Html.EditorFor(m => m.SearchArrival, new { htmlAttributes = new { @class = "form-control", placeholder = "Arrival Date" } })
+        @Html.ValidationMessageFor(m => m.SearchArrival)
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.SearchOccupancy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.SearchOccupancy, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.SearchOccupancy)
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-3 col-md-7">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </div>
+    <div class="form-group">
 
+        @Html.LabelFor(m => m.SearchDeparture)
+        @Html.EditorFor(m => m.SearchDeparture, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(m => m.SearchDeparture)
+
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.SearchOccupancy)
+        @Html.TextBoxFor(m => m.SearchOccupancy, new { @class = "form-control", placeholder = "Minimum Occupancy" })
+        @Html.ValidationMessageFor(m => m.SearchOccupancy)
+
+    </div>
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Search</button>
     </div>
 }

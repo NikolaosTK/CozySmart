@@ -26,7 +26,7 @@ namespace CozySmart.ViewModels
         public DateTime SearchDeparture { get; set; }
 
         [Required]
-        [Display(Name = "Occupancy")]
+        [Display(Name = "Number of Visitors")]
         public byte? SearchOccupancy { get; set; }
 
         public IEnumerable<Accommodation> Accommodations { get; set; }
