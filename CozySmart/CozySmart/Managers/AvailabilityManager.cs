@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace CozySmart.Managers
 {
@@ -27,10 +28,11 @@ namespace CozySmart.Managers
                     AccommodationId = availabilityModel.AccommodationId
                 };
 
-                var currentAccommodation = _db.Accommodations.Where(a => a.Id == availabilityModel.AccommodationId).Single();
+                var currentAccommodation = _db.Accommodations.Include(a => a.Availabilities).Where(a => a.Id == availabilityModel.AccommodationId).Single();
+              
                 var pastAvailability = _db.Availabilities.Find(availability.Id);
 
-                currentAccommodation.Availabilities.Remove(pastAvailability);
+                _db.Availabilities.Remove(pastAvailability);
                 currentAccommodation.Availabilities.Add(firstPart);
                 currentAccommodation.Availabilities.Add(secondPart);
 
@@ -42,7 +44,7 @@ namespace CozySmart.Managers
         {
             using (CozySmartContext _db = new CozySmartContext())
             {
-                return _db.Accommodations.Where(a => a.Id == id).Single().Availabilities.ToList();
+                return _db.Accommodations.Include(a => a.Availabilities).Where(a => a.Id == id).Single().Availabilities.ToList();
             }
 
         }

@@ -43,7 +43,7 @@ textarea {
 }
 
 .row{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .amenity{
@@ -70,6 +70,10 @@ textarea {
 .btn-details{
     margin-left:10px;
     line-height:12px;
+}
+
+btn-modal{
+    margin-left:10px;
 }
 
 /*body, html {

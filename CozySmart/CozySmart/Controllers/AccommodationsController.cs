@@ -91,13 +91,13 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations
-        /*
+
         [Authorize(Roles = "Host")]
         public ActionResult Index()
         {
             var accommodations = _db.Accommodations.Include(a => a.Category);
             return View(accommodations.ToList());
-        } */
+        }
 
 
         [Authorize(Roles = "Host")]
