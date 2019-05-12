@@ -191,7 +191,7 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations/Details/id
-        [Authorize(Roles = "Host")]
+        [Authorize(Roles = "Host,Tenant")]
         public ActionResult Details(int? id)
         {
             if (id == null)

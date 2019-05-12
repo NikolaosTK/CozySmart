@@ -11,7 +11,8 @@ using System.Web.Mvc;
 namespace CozySmart.Controllers
 {
 
-    [Authorize]
+
+    [Authorize(Roles = "Host")]
     public class AvailabilityController : Controller
     {
         private CozySmartContext _db;

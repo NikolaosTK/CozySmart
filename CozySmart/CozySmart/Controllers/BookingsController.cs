@@ -51,14 +51,14 @@ namespace CozySmart.Controllers
         // GET: Bookings
        
 
-        
+        /*
         public ActionResult Index()
         {
             var bookings = _db.Bookings.Include(b => b.Accommodation);
             return View(bookings.ToList());
         }
 
-
+        */
         [Authorize(Roles = "Host")]
         public ActionResult BookingsAccommodation()
         {

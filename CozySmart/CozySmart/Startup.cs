@@ -44,7 +44,7 @@ namespace CozySmart
 
 
                 
-              /*
+              
 
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();   
@@ -59,12 +59,21 @@ namespace CozySmart
                 user.LastName = "Admin";
                 user.Email = "Admin@gmail.com";   
    
-                string userPWD = "Vasilis1992!";   
-   
-                var chkUser = UserManager.Create(user, userPWD); 
+                string userPWD = "Vasilis1992!";
 
-                  
-                */
+                user.DateJoined = DateTime.Today;
+
+                user.UserName = user.Email;
+
+                var chkUser = UserManager.Create(user, userPWD);
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+
+                }
+
+
+
 
             }
 

@@ -11,7 +11,7 @@ using CozySmart.Models;
 namespace CozySmart.Controllers
 {
 
-    [Authorize(Roles = "Host")]
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private CozySmartContext db = new CozySmartContext();
