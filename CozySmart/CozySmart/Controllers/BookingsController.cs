@@ -33,17 +33,22 @@ namespace CozySmart.Controllers
         [Authorize(Roles = "Tenant")]
         public ActionResult AutoBooking(int id)
         {
-            var dates = Session["Dates"] as DatesViewModel;
+            var dates = (DatesViewModel) Session["Dates"] ?? null;
 
-            Booking newBooking = new Booking
+            if (dates != null)
             {
-                AccommodationId = id,
-                Arrival = dates.SearchArrival,
-                Departure = dates.SearchDeparture
-            };
+                Booking newBooking = new Booking
+                {
+                    AccommodationId = id,
+                    Arrival = dates.SearchArrival,
+                    Departure = dates.SearchDeparture
+                };
 
-            _db.Bookings.Add(newBooking);
-            _db.SaveChanges();
+                _db.Bookings.Add(newBooking);
+                _db.SaveChanges();
+            }
+
+           
 
             return RedirectToAction("Index", "Home");
         }

@@ -4,28 +4,28 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using CozySmart.Models;
+using ExpressiveAnnotations.Attributes;
 
 namespace CozySmart.ViewModels
 {
     public class SearchFormViewModel
     {
-        [Required]
         [Display(Name = "Location")]
         public string SearchLocation { get; set; }
 
-        [Required]
         [Display(Name = "Arrival")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime SearchArrival { get; set; }
+        [RequiredIf("SearchDeparture != null")]
+        [AssertThat("SearchArrival >= Today()")]
+        public DateTime? SearchArrival { get; set; }
 
-        [Required]
         [Display(Name = "Departure")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime SearchDeparture { get; set; }
+        [RequiredIf("SearchArrival != null")]
+        public DateTime? SearchDeparture { get; set; }
 
-        [Required]
         [Display(Name = "Number of Visitors")]
         public byte? SearchOccupancy { get; set; }
 
@@ -36,9 +36,9 @@ namespace CozySmart.ViewModels
 
     public class DatesViewModel
     {
-        public DateTime SearchArrival { get; set; }
+        public DateTime? SearchArrival { get; set; }
 
-        public DateTime SearchDeparture { get; set; }
+        public DateTime? SearchDeparture { get; set; }
 
     }
 }

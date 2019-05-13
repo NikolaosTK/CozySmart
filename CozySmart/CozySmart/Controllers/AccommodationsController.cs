@@ -59,7 +59,11 @@ namespace CozySmart.Controllers
 
             if (searchModel.SearchArrival != null && searchModel.SearchDeparture != null)
             {
-
+                Session["Dates"] = new DatesViewModel
+                {
+                    SearchArrival = searchModel.SearchArrival,
+                    SearchDeparture = searchModel.SearchDeparture
+                };
                 //Implement availability
 
                 foreach (var accommodation in searchResults.ToList())
@@ -78,12 +82,9 @@ namespace CozySmart.Controllers
             }
 
             
+            
 
-            Session["Dates"] = new DatesViewModel
-            {
-                SearchArrival = searchModel.SearchArrival,
-                SearchDeparture = searchModel.SearchDeparture
-            };
+
 
 
 

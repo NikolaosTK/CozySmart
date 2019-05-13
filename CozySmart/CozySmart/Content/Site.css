@@ -76,24 +76,24 @@ btn-modal{
     margin-left:10px;
 }
 
-body,
 html,
-header,
-.view{
+body{
     height: 100%;
-    padding-top: 50px;
-
-    background-image: url(https://www.wetravel.com/stories/wp-content/uploads/2016/08/planning-_a_group_trip.jpeg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-size: cover;   
     margin: auto;
 }
+
+.search-img {
+    background: url(https://www.wetravel.com/stories/wp-content/uploads/2016/08/planning-_a_group_trip.jpeg) no-repeat center center fixed;
+}
+
 
 .form-area {
     position: absolute;
     width: 350px;
     height: 470px;
+    margin-top: 70px;
+
     box-sizing: border-box;
     background: rgba(224,189,133,0.6);
     padding: 30px;
@@ -151,17 +151,13 @@ h2{
     background-color: #33691e;
 }
 
-.top-nav-collapse {
+.navbar-default {
     background-color: #558b2f;
     color: #ffffff;
 }
 
-.navbar:not(.top-nav-collapse){
-    background: transparent;
-}
-
-.navbar a{
-    color: #ffffff;
+.navbar ul li a{   
+    color: #ffffff !important;
 }
 
 .navbar ul li a:hover {

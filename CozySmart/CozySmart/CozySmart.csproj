@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExpressiveAnnotations, Version=2.7.4.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressiveAnnotations.dll.2.7.4\lib\net45\ExpressiveAnnotations.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -259,7 +262,6 @@
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
     <Compile Include="Models\Availability.cs" />
-    <Compile Include="Models\LaterDateBeforeFirstDate.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="ViewModels\AccommodationViewModels.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />

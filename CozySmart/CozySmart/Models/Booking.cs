@@ -14,13 +14,13 @@ namespace CozySmart.Models
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Arrival { get; set; }
+        public DateTime? Arrival { get; set; }
 
         [Display(Name="Departure Date")]
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:d MMM yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime Departure { get; set; }
+        public DateTime? Departure { get; set; }
 
 
         public Accommodation Accommodation { get; set; }
