@@ -40,15 +40,17 @@ namespace CozySmart.Controllers
         {
             searchModel.Accommodations = _db.Accommodations.ToList();
             searchModel.Bookings = _db.Bookings.ToList();
+            searchModel.Availabilities = _db.Availabilities.ToList();
 
-            
             var searchResults = _db.Accommodations.ToList();
             
-            
-            if(searchModel.SearchLocation != null)
+
+
+            if (searchModel.SearchLocation != null)
             {
                 searchResults = searchResults
                                 .Where(a => a.Location == searchModel.SearchLocation).ToList();
+                
             }
 
             if (searchModel.SearchOccupancy != null)
@@ -70,6 +72,7 @@ namespace CozySmart.Controllers
                 {
                     var accommodationBookings = searchModel.Bookings.Where(b => b.AccommodationId == accommodation.Id);
 
+
                     foreach (var booking in accommodationBookings)
                     {
                         if (searchModel.SearchArrival <= booking.Departure && searchModel.SearchDeparture >= booking.Arrival)
@@ -78,6 +81,23 @@ namespace CozySmart.Controllers
                             break;
                         }
                     }
+
+
+                    var accommodationAvailabilities = searchModel.Availabilities.Where(b => b.AccommodationId == accommodation.Id);
+
+                    foreach (var availability in accommodationAvailabilities)
+                    {
+
+                        if (searchModel.SearchArrival <= availability.AvailabilityStart && searchModel.SearchDeparture >= availability.AvailabilityEnd)
+                        {
+                            searchResults.Remove(accommodation);
+                            break;
+                        }
+
+                    }
+
+
+
                 }
             }
 

@@ -32,6 +32,8 @@ namespace CozySmart.ViewModels
         public IEnumerable<Accommodation> Accommodations { get; set; }
 
         public IEnumerable<Booking> Bookings { get; set; }
+
+        public IEnumerable<Availability> Availabilities { get; set; }
     }
 
     public class DatesViewModel
