@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using CozySmart.Models;
 using CozySmart.ViewModels;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CozySmart.Controllers
 {
@@ -34,6 +36,7 @@ namespace CozySmart.Controllers
         public ActionResult AutoBooking(int id)
         {
             var dates = (DatesViewModel) Session["Dates"] ?? null;
+            var userId = User.Identity.GetUserId();
 
             if (dates != null)
             {
@@ -41,8 +44,10 @@ namespace CozySmart.Controllers
                 {
                     AccommodationId = id,
                     Arrival = dates.SearchArrival,
-                    Departure = dates.SearchDeparture
+                    Departure = dates.SearchDeparture,
+                    ApplicationUserId = userId
                 };
+                
 
                 _db.Bookings.Add(newBooking);
                 _db.SaveChanges();
@@ -56,14 +61,14 @@ namespace CozySmart.Controllers
         // GET: Bookings
        
 
-        /*
+        
         public ActionResult Index()
         {
             var bookings = _db.Bookings.Include(b => b.Accommodation);
             return View(bookings.ToList());
         }
 
-        */
+        
         [Authorize(Roles = "Host")]
         public ActionResult BookingsAccommodation()
         {

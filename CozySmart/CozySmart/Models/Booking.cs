@@ -36,7 +36,7 @@ namespace CozySmart.Models
 
         public ApplicationUser ApplicationUser { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         //public int Rating { get; set; }//Not implemented yet
     }

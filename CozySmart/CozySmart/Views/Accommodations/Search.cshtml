@@ -2,38 +2,37 @@
 @{
     ViewBag.Title = "Search";
 }
-<div class="no-img">
-    <h2>Search Result</h2>
 
-    <p>
-        @Html.ActionLink("Make a new Search", "Index", "Home")
-    </p>
+<h2>Search Result</h2>
 
-    @if (!Model.Any())
-    {
-        <p>There are not any accommodation fitting the criteria.</p>
-    }
-    else
-    {
-        <div class="row">
-            @foreach (var accommodation in Model)
-            {
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <img src="@accommodation.Thumbnail" class="img-thumbnail" alt="Thumbnail">
-                            <h2 class="panel-title text-center">@accommodation.Title</h2>
-                        </div>
-                        <div class="panel-body text-center">
-                            Location: @accommodation.Location <br />
-                            Price: @accommodation.Price
-                        </div>
-                        <div class="panel-footer text-center">
-                            <a href="~/Accommodations/Details/@accommodation.Id" class=" = btn btn-success" role="button">Learn more</a>
-                        </div>
+<p>
+    @Html.ActionLink("Make a new Search", "Index", "Home")
+</p>
+
+@if (!Model.Any())
+{
+    <p>There are not any accommodation fitting the criteria.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var accommodation in Model)
+        {
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <img src="@accommodation.Thumbnail" class="img-thumbnail" alt="Thumbnail">
+                        <h2 class="panel-title text-center">@accommodation.Title</h2>
+                    </div>
+                    <div class="panel-body text-center">
+                        Location: @accommodation.Location <br />
+                        Price: @accommodation.Price
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a href="~/Accommodations/Details/@accommodation.Id" class=" = btn btn-success" role="button">Learn more</a>
                     </div>
                 </div>
-            }
-        </div>
-    }
-</div>
+            </div>
+        }
+    </div>
+}

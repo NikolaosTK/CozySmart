@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html class="basic-bg">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +7,13 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-    
-
 </head>
-<body class="basic-bg">
+<body class="form-bg">
     @Html.Partial("_NavBar")
-
 
     <div class="container body-content">
         @RenderBody()
     </div>
-    
-
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

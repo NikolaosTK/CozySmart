@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201905110849402_UpdatedAvailability.Designer.cs">
       <DependentUpon>201905110849402_UpdatedAvailability.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905131954321_UpdatedAppUserIdToStringInBookings.cs" />
+    <Compile Include="Migrations\201905131954321_UpdatedAppUserIdToStringInBookings.Designer.cs">
+      <DependentUpon>201905131954321_UpdatedAppUserIdToStringInBookings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
@@ -355,13 +359,14 @@
     <Content Include="Views\Bookings\BookingForm.cshtml" />
     <Content Include="Views\Accommodations\Search.cshtml" />
     <Content Include="Views\Accommodations\Carousel.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Availability\Index.cshtml" />
     <Content Include="Views\Accommodations\Amenities.cshtml" />
     <Content Include="Views\Accommodations\Description.cshtml" />
     <Content Include="Views\Availability\AvailabilityForm.cshtml" />
     <Content Include="Views\Roles\AddHostRole.cshtml" />
     <Content Include="Views\Accommodations\Availabilities.cshtml" />
+    <Content Include="Views\Shared\_FormsLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905110849402_UpdatedAvailability.resx">
       <DependentUpon>201905110849402_UpdatedAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131954321_UpdatedAppUserIdToStringInBookings.resx">
+      <DependentUpon>201905131954321_UpdatedAppUserIdToStringInBookings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
