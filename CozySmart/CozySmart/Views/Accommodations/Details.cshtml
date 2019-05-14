@@ -18,8 +18,6 @@
         <a href="~/Images/New/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Add Image</a>
     </h4>
 
-
-
     <hr />
 
     <div class="row">
@@ -102,17 +100,15 @@
             {
                 @Html.Partial("Carousel")
             }
-        </div>
+        </div>    
     </div>
 
-    <div class="row ">
+    <div class="row">
         <div class="col-md-2">
             @Html.Partial("Amenities")
-        </div>
+        </div>        
 
-        <div class="col-md-1"></div>
-
-        <div class="col-md-5">
+        <div class="col-md-6">
             @Html.Partial("Description")
         </div>
 
@@ -120,6 +116,7 @@
             @Html.Partial("Availabilities")
         </div>
     </div>
+
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")
