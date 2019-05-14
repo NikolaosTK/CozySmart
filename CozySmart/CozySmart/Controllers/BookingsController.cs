@@ -32,7 +32,7 @@ namespace CozySmart.Controllers
             base.Dispose(disposing);
         }
 
-       // [Authorize(Roles = "Tenant")]
+        [Authorize]
         public ActionResult AutoBooking(int id)
         {
             var dates = (DatesViewModel) Session["Dates"] ?? null;
@@ -69,7 +69,7 @@ namespace CozySmart.Controllers
 
            
 
-            var bookings = _db.Bookings.ToList();
+            var bookings = _db.Bookings.Include(b => b.Accommodation).ToList();
             bookings = bookings.OrderBy(b => b.Arrival).Where(b => b.ApplicationUserId == currentUser.Id).ToList();
 
 
@@ -80,7 +80,14 @@ namespace CozySmart.Controllers
         }
 
 
+        public ActionResult BookingsAccommodations()
+        {
 
+
+
+
+            return View();
+        }
 
 
         // GET: Bookings        

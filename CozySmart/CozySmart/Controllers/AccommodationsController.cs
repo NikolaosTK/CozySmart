@@ -10,6 +10,7 @@ using CozySmart.Managers;
 using CozySmart.Models;
 using CozySmart.ViewModels;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CozySmart.Controllers
 {
@@ -109,9 +110,23 @@ namespace CozySmart.Controllers
         //[Authorize(Roles = "Host")]
         public ActionResult Index()
         {
+
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
             var accommodations = _db.Accommodations.Include(a => a.Category);
-            return View(accommodations.ToList());
+
+            var myAccommodations = accommodations.Where(a => a.ApplicationUserId == currentUser.Id).ToList();
+
+
+            return View(myAccommodations.ToList());
         }
+
+
+
+       
+    
 
 
         //[Authorize(Roles = "Host")]
@@ -230,6 +245,7 @@ namespace CozySmart.Controllers
                 return HttpNotFound();
             }
 
+           
             return View("Details", viewModel);
         }
 

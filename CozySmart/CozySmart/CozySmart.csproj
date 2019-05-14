@@ -380,6 +380,7 @@
     <Content Include="Views\Shared\NavbarHostRole.cshtml" />
     <Content Include="Views\Shared\NavbarTenantRole.cshtml" />
     <Content Include="Views\Bookings\MyBookings.cshtml" />
+    <Content Include="Views\Bookings\BookingsAccommodations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
