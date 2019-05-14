@@ -3,6 +3,8 @@
     ViewBag.Title = "AvailabilityForm";
 }
 
+@Html.Partial("NavbarHostRole")
+
 <h2>Add the occupation period you want</h2>
 
 @using (Html.BeginForm("Add", "Availability", FormMethod.Post, new { @class = "multi-data/form-control" }))

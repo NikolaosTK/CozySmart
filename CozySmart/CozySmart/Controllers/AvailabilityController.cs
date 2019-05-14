@@ -12,7 +12,7 @@ namespace CozySmart.Controllers
 {
 
 
-    [Authorize(Roles = "Host")]
+    //[Authorize(Roles = "Host")]
     public class AvailabilityController : Controller
     {
         private CozySmartContext _db;

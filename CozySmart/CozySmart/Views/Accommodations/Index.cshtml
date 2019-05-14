@@ -4,8 +4,10 @@
     ViewBag.Title = "Accommodations";
 }
 
-<h2>Accommodations</h2>
-<p>
+
+@Html.Partial("NavbarHostRole")
+
+<p  style="margin-top:30px;">
     @Html.ActionLink("Add a new Accommodation", "New", "Accommodations")
 </p>
 
@@ -25,11 +27,11 @@ else
                         <h2 class="panel-title text-center">@accommodation.Title</h2>
                     </div>
                     <div class="panel-body text-center">
-                        Location: @accommodation.Location <br/>
+                        Location: @accommodation.Location <br />
                         Price: @accommodation.Price
                     </div>
                     <div class="panel-footer text-center">
-                        <a href="~/Accommodations/Details/@accommodation.Id" class="btn btn-success" role="button">Learn more</a>                        
+                        <a href="~/Accommodations/Details/@accommodation.Id" class="btn btn-success" role="button">Learn more</a>
                     </div>
                 </div>
             </div>

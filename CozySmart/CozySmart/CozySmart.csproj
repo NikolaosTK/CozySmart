@@ -375,6 +375,11 @@
     <Content Include="Views\Accommodations\Availabilities.cshtml" />
     <Content Include="Views\Shared\_FormsLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\NavbarTenant.cshtml" />
+    <Content Include="Views\Shared\NavbarAnonymous.cshtml" />
+    <Content Include="Views\Shared\NavbarHostRole.cshtml" />
+    <Content Include="Views\Shared\NavbarTenantRole.cshtml" />
+    <Content Include="Views\Bookings\MyBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

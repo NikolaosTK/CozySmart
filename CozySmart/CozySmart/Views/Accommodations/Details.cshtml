@@ -5,13 +5,13 @@
 }
 
 <h2>@Model.Title</h2>
-
+@Html.Partial("NavbarAnonymous")
 <div>
     <h4>
         <span class="glyphicon glyphicon-map-marker"></span>
         <span>@Model.Adress, @Model.Location</span>
 
-       
+
 
         <a href="~/Accommodations/Edit/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Edit</a>
         <a href="~/Availability/New/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Add Occupation</a>
@@ -100,13 +100,13 @@
             {
                 @Html.Partial("Carousel")
             }
-        </div>    
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-2">
             @Html.Partial("Amenities")
-        </div>        
+        </div>
 
         <div class="col-md-6">
             @Html.Partial("Description")

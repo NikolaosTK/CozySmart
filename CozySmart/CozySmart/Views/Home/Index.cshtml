@@ -1,8 +1,76 @@
 ﻿
+
+
+
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_FormsLayout.cshtml";
 }
+
+
+
+
+
+
+@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+
+
+
+
+    if (ViewBag.isAlsoHost == true)
+
+    {
+
+        if (ViewBag.Role == "Tenant")
+        {
+            @Html.Partial("NavbarTenantRole")
+
+        }
+
+        else if (ViewBag.Role == "Host")
+        {
+            @Html.Partial("NavbarHostRole")
+
+        }
+
+        else
+        { @Html.Partial("NavbarTenantRole") }
+
+
+}
+
+else
+
+{
+
+
+    @Html.Partial("NavbarTenant")
+
+
+}
+
+
+
+}
+else
+
+{
+
+
+@Html.Partial("NavbarAnonymous")
+
+
+}
+
+
+
+
+
+
+
 
 
 <div class="row">

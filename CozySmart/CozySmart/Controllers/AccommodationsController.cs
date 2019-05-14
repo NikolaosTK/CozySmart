@@ -106,7 +106,7 @@ namespace CozySmart.Controllers
 
         // GET: Accommodations
 
-        [Authorize(Roles = "Host")]
+        //[Authorize(Roles = "Host")]
         public ActionResult Index()
         {
             var accommodations = _db.Accommodations.Include(a => a.Category);
@@ -114,7 +114,7 @@ namespace CozySmart.Controllers
         }
 
 
-        [Authorize(Roles = "Host")]
+        //[Authorize(Roles = "Host")]
         [HttpGet]
         public ActionResult New()
         {
@@ -141,7 +141,7 @@ namespace CozySmart.Controllers
         }
 
 
-        [Authorize(Roles = "Host")]
+       // [Authorize(Roles = "Host")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(AccommodationFormViewModel accommodationModel)
@@ -171,7 +171,7 @@ namespace CozySmart.Controllers
         }
 
 
-        [Authorize(Roles = "Host")]
+        //[Authorize(Roles = "Host")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -207,7 +207,7 @@ namespace CozySmart.Controllers
         }
 
         // GET: Accommodations/Details/id
-        [Authorize(Roles = "Host,Tenant")]
+        //[Authorize(Roles = "Host,Tenant")]
         public ActionResult Details(int? id)
         {
             if (id == null)
