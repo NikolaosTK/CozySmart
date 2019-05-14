@@ -67,7 +67,7 @@ namespace CozySmart.Models
                         {
                             ma.MapLeftKey("AccommodationId");
                             ma.MapRightKey("AmenityId");
-                            ma.ToTable("AccommodationFeatures");
+                            ma.ToTable("AccommodationAmenities");
                         });
 
             

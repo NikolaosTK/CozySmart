@@ -2,14 +2,18 @@
 using CozySmart.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CozySmart.Managers
 {
     public static class AccommodationManager
     {
-        public static void Add(AccommodationFormViewModel accommodationModel)
+        public static void Add(AccommodationFormViewModel accommodationModel, string userId)
         {
             using (CozySmartContext _db = new CozySmartContext())
             {
@@ -28,7 +32,8 @@ namespace CozySmart.Managers
                     Bedrooms = accommodationModel.Bedrooms,
                     Baths = accommodationModel.Baths,
                     Price = accommodationModel.Price,
-                    CategoryId = accommodationModel.CategoryId
+                    CategoryId = accommodationModel.CategoryId,
+                    ApplicationUserId = userId
                 };
 
                 accommodation.Availabilities.Add(defaultAvailability);
@@ -38,7 +43,7 @@ namespace CozySmart.Managers
                     var amenity = _db.Amenities.Find(amenityId);
                     accommodation.Amenities.Add(amenity);
                 }
-
+                
                 _db.Accommodations.Add(accommodation);
                 _db.SaveChanges();
             }

@@ -29,9 +29,11 @@ namespace CozySmart.Controllers
             return View(availability);
         }
 
-        public ActionResult New()
+        public ActionResult New(int id)
         {
             var viewModel = new AvailabilityFormViewModel();
+
+            viewModel.AccommodationId = id;
 
             return View("AvailabilityForm", viewModel);
         }

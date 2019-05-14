@@ -262,6 +262,14 @@
     <Compile Include="Migrations\201905131954321_UpdatedAppUserIdToStringInBookings.Designer.cs">
       <DependentUpon>201905131954321_UpdatedAppUserIdToStringInBookings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905141117333_AddedOwnerToAccommodation.cs" />
+    <Compile Include="Migrations\201905141117333_AddedOwnerToAccommodation.Designer.cs">
+      <DependentUpon>201905141117333_AddedOwnerToAccommodation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141122224_ChangedNameOfManyToManyAccommodationAmenities.cs" />
+    <Compile Include="Migrations\201905141122224_ChangedNameOfManyToManyAccommodationAmenities.Designer.cs">
+      <DependentUpon>201905141122224_ChangedNameOfManyToManyAccommodationAmenities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\CheckBoxListItem.cs" />
@@ -441,6 +449,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905131954321_UpdatedAppUserIdToStringInBookings.resx">
       <DependentUpon>201905131954321_UpdatedAppUserIdToStringInBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141117333_AddedOwnerToAccommodation.resx">
+      <DependentUpon>201905141117333_AddedOwnerToAccommodation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141122224_ChangedNameOfManyToManyAccommodationAmenities.resx">
+      <DependentUpon>201905141122224_ChangedNameOfManyToManyAccommodationAmenities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

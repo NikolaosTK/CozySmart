@@ -5,14 +5,40 @@
         <p>Available Periods</p>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body text-left">
         @for (int i = 0; i < Model.Availabilities.Count(); i++)
         {
             <div class="text-center amenity">
                 <strong>From </strong>@Html.DisplayFor(m => m.Availabilities[i].AvailabilityStart)<strong> Until </strong> @Html.DisplayFor(m => m.Availabilities[i].AvailabilityEnd)
             </div>
-            
-            
+
+
         }
+    </div>
+
+    <div class="panel-footer text-center">
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#bookingModal">Book It</button>
+    </div>
+</div>
+
+<!-- Booking Modal -->
+<div class="modal fade" id="bookingModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Booking Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>You are about to make a Booking at @Model.Title .Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="~/Bookings/AutoBooking/@Model.Id" class="btn btn-primary pull-right" role="button">Confirm</a>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
     </div>
 </div>

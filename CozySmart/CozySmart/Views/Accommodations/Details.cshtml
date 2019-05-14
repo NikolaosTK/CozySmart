@@ -11,10 +11,10 @@
         <span class="glyphicon glyphicon-map-marker"></span>
         <span>@Model.Adress, @Model.Location</span>
 
-        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#bookingModal">Book</button>
+       
 
         <a href="~/Accommodations/Edit/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Edit</a>
-        <a href="~/Accommodations/Edit/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Add Occupation</a>
+        <a href="~/Availability/New/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Add Occupation</a>
         <a href="~/Images/New/@Model.Id" class="btn btn-success pull-right btn-details" role="button">Add Image</a>
     </h4>
 
@@ -32,10 +32,10 @@
                 <div class="panel-body">
                     <dl class="text-center">
                         <dt>
-                            @Html.DisplayNameFor(m => m.CategoryId)
+                            @Html.DisplayNameFor(m => m.Category)
                         </dt>
                         <dd>
-                            @Html.DisplayFor(m => m.CategoryId)
+                            @Html.DisplayFor(m => m.Category)
                         </dd>
                     </dl>
 
@@ -105,16 +105,19 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            @Html.Partial("Availabilities")
+    <div class="row ">
+        <div class="col-md-2">
+            @Html.Partial("Amenities")
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-5">
             @Html.Partial("Description")
         </div>
 
-        <div class="col-md-2">
-            @Html.Partial("Amenities")
+        <div class="col-md-4">
+            @Html.Partial("Availabilities")
         </div>
     </div>
 </div>
@@ -122,24 +125,3 @@
     @Html.ActionLink("Back to List", "Index")
 </p>
 
-<!-- Booking Modal -->
-<div class="modal fade" id="bookingModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Booking Confirmation</h4>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="~/Bookings/AutoBooking/@Model.Id" class="btn btn-primary pull-right" role="button">Confirm</a>
-                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-
-    </div>
-</div>

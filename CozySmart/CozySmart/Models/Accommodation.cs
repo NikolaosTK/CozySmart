@@ -34,7 +34,7 @@ namespace CozySmart.Models
         [DataType(DataType.ImageUrl)]
         public string Thumbnail { get; set; }
 
-        [StringLength(100, ErrorMessage="Description of property should be a maximum of 100 characters")]
+        [StringLength(1024, ErrorMessage="Description of property should be a maximum of 100 characters")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
@@ -68,14 +68,8 @@ namespace CozySmart.Models
 
         public virtual ICollection<Amenity> Amenities { get; set; }
 
+        public ApplicationUser ApplicationUser { get; set; }
 
-
-
-
-        //public int Rating { get; set; }//To implement later
-
-        
-
-        
+        public string ApplicationUserId { get; set; }
     }
 }

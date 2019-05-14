@@ -202,6 +202,6 @@ h2{
     border-radius: 10px;
 }
 
-    .btn-nav:hover {
-        background-color: #1e9bed !important;
-    }
+.btn-nav:hover {
+    background-color: #1e9bed !important;
+}

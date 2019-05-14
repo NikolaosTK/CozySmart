@@ -27,7 +27,7 @@ namespace CozySmart.ViewModels
         [DataType(DataType.ImageUrl)]
         public string Thumbnail { get; set; }
 
-        [StringLength(100, ErrorMessage = "Description of property should be a maximum of 100 characters")]
+        [StringLength(1024, ErrorMessage = "Description of property should be a maximum of 100 characters")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
@@ -139,10 +139,8 @@ namespace CozySmart.ViewModels
         [Display(Name = "Base price per night")]
         public int? Price { get; set; }
 
-        [Required(ErrorMessage = "Type of property is required")]
         [Display(Name = "Accommodation Category")]
-        public int CategoryId { get; set; }
-
+        public string Category { get; set; }
 
         public IEnumerable<Image> Images { get; set; }
 
@@ -162,7 +160,6 @@ namespace CozySmart.ViewModels
             Bedrooms = accommodation.Bedrooms;
             Baths = accommodation.Baths;
             Price = accommodation.Price;
-            CategoryId = accommodation.CategoryId;
         }
     }
 

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CozySmart.Managers;
 using CozySmart.Models;
 using CozySmart.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace CozySmart.Controllers
 {
@@ -100,14 +101,6 @@ namespace CozySmart.Controllers
 
                 }
             }
-
-            
-            
-
-
-
-
-
             return View(searchResults);
         }
 
@@ -163,9 +156,11 @@ namespace CozySmart.Controllers
                 return View("AccommodationForm", viewModel);
             }
 
+            var userId = User.Identity.GetUserId();
+
             if(accommodationModel.Id == 0)
             {
-                AccommodationManager.Add(accommodationModel);
+                AccommodationManager.Add(accommodationModel, userId);
             }
             else
             {
@@ -226,7 +221,8 @@ namespace CozySmart.Controllers
             {
                 Amenities = AmenitiesManager.GetForAccommodation(id),
                 Availabilities = AvailabilityManager.GetForAccommodation(id),
-                Images = _db.Images.Where(i => i.AccommodationId == id)
+                Images = _db.Images.Where(i => i.AccommodationId == id),
+                Category = _db.Categories.Find(currentAccommodation.CategoryId).Description
             };
             
             if (viewModel == null)

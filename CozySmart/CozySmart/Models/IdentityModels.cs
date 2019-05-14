@@ -34,6 +34,8 @@ namespace CozySmart.Models
         public DateTime DateJoined { get; set; }
 
         public ICollection<Booking> Bookings { get; set; }
+
+        public ICollection<Accommodation> Accommodations { get; set; }
     }
 
     

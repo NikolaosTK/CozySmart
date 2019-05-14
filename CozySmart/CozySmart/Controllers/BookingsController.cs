@@ -58,10 +58,7 @@ namespace CozySmart.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: Bookings
-       
-
-        
+        // GET: Bookings        
         public ActionResult Index()
         {
             var bookings = _db.Bookings.Include(b => b.Accommodation);
