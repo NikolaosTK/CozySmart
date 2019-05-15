@@ -22,9 +22,9 @@
 
 
 
-                <li> <a href="~/Bookings/MyBookings/?num=1"> MyBookings </a>  </li>
+                <li> <a href="~/Bookings/MyBookings/?num=1"> My Bookings </a>  </li>
 
-                <li>@Html.ActionLink("Switch", "FromTenantToHost", "Home")</li>
+                <li class="pull-right">@Html.ActionLink("Switch mode", "FromTenantToHost", "Home", new { @class = "btn btn-nav" })</li>
 
 
             </ul>

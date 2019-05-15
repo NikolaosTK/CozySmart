@@ -5,7 +5,8 @@
 
 @using (Html.BeginForm("Search", "Accommodations", FormMethod.Get, new { @class = "multi-data/form-control form-area" }))
 {
-    <h2>Search</h2>
+    <h2 class="title-form">Search</h2>
+
     <div class="form-group">
 
         @Html.LabelFor(m => m.SearchLocation)
@@ -17,7 +18,7 @@
     <div class="form-group">
 
         @Html.LabelFor(m => m.SearchArrival)
-        @Html.EditorFor(m => m.SearchArrival, new { htmlAttributes = new { @class = "form-control", placeholder = "Arrival Date" } })
+        @Html.EditorFor(m => m.SearchArrival, new { htmlAttributes = new { @class = "form-control"} })
         @Html.ValidationMessageFor(m => m.SearchArrival)
 
     </div>
